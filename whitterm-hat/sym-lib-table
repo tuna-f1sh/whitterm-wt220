@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name whitterm_hat)(type Legacy)(uri ${KIPRJMOD}/project_components/whitterm-hat.lib)(options " pwr_sym_only pwr_sym_only")(descr ""))
+  (lib (name whitterm-hat-rescue)(type Legacy)(uri ${KIPRJMOD}/whitterm-hat-rescue.lib)(options "")(descr ""))
+  (lib (name ti)(type Legacy)(uri ${USRMOD}/sharebrained/ti.lib)(options "")(descr ""))
+)

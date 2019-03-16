@@ -1,0 +1,12 @@
+[Unit]
+Description=WT220 Boot Screen
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+ExecStart=/bin/bash /opt/wt220/wt220-boot.sh
+StandardInput=tty
+StandardOutput=tty
+
+[Install]
+WantedBy=sysinit.target

@@ -1,0 +1,281 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:whitterm-breakout-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L DB9 J1
+U 1 1 58CBE12F
+P 7850 3650
+F 0 "J1" H 7850 4200 50  0000 C CNN
+F 1 "DB9" H 7850 3100 50  0000 C CNN
+F 2 "KiCad/Connect.pretty:DB9MC" H 7850 3650 50  0001 C CNN
+F 3 "" H 7850 3650 50  0000 C CNN
+	1    7850 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X05 P2
+U 1 1 58CBE184
+P 5700 2850
+F 0 "P2" H 5700 3150 50  0000 C CNN
+F 1 "CONN_01X05" V 5800 2850 50  0000 C CNN
+F 2 "KiCad/Pin_Headers.pretty:Pin_Header_Straight_1x05" H 5700 2850 50  0001 C CNN
+F 3 "" H 5700 2850 50  0000 C CNN
+	1    5700 2850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_01X05 P3
+U 1 1 58CBE1DB
+P 5700 4550
+F 0 "P3" H 5700 4850 50  0000 C CNN
+F 1 "CONN_01X05" V 5800 4550 50  0000 C CNN
+F 2 "KiCad/Pin_Headers.pretty:Pin_Header_Straight_1x05" H 5700 4550 50  0001 C CNN
+F 3 "" H 5700 4550 50  0000 C CNN
+	1    5700 4550
+	0    1    1    0   
+$EndComp
+$Comp
+L USB_OTG P1
+U 1 1 58CBE223
+P 3950 3600
+F 0 "P1" H 4275 3475 50  0000 C CNN
+F 1 "USB_OTG" H 3950 3800 50  0000 C CNN
+F 2 "KiCad/Connect.pretty:USB_Micro-B_10103594-0001LF" V 3900 3500 50  0001 C CNN
+F 3 "" V 3900 3500 50  0000 C CNN
+F 4 "Amphenol" H 3950 3600 60  0001 C CNN "MFN"
+F 5 "10103594-0001LF" H 3950 3600 60  0001 C CNN "MFP"
+F 6 "RS" H 3950 3600 60  0001 C CNN "Supplier"
+F 7 "714-2347" H 3950 3600 60  0001 C CNN "SPN"
+F 8 "10103594-0001LF" H 3950 3600 60  0001 C CNN "MPN"
+	1    3950 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L VCC #PWR01
+U 1 1 58CBE2AA
+P 5200 2950
+F 0 "#PWR01" H 5200 2800 50  0001 C CNN
+F 1 "VCC" H 5200 3100 50  0000 C CNN
+F 2 "" H 5200 2950 50  0000 C CNN
+F 3 "" H 5200 2950 50  0000 C CNN
+	1    5200 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 2950 5200 3800
+Wire Wire Line
+	4250 3800 4500 3800
+Wire Wire Line
+	5500 3050 5500 3250
+Wire Wire Line
+	5200 3250 5600 3250
+Connection ~ 5200 3250
+Wire Wire Line
+	5200 3350 7400 3350
+Connection ~ 5200 3350
+$Comp
+L GND #PWR02
+U 1 1 58CBE2E5
+P 7000 4450
+F 0 "#PWR02" H 7000 4200 50  0001 C CNN
+F 1 "GND" H 7000 4300 50  0000 C CNN
+F 2 "" H 7000 4450 50  0000 C CNN
+F 3 "" H 7000 4450 50  0000 C CNN
+	1    7000 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 3250 7400 3250
+Wire Wire Line
+	7000 3250 7000 4450
+Connection ~ 7000 3250
+Wire Wire Line
+	5700 3400 4250 3400
+Connection ~ 5700 3250
+Text GLabel 6850 3450 0    60   Input ~ 0
+#14_TXD
+Wire Wire Line
+	6850 3450 7400 3450
+Text GLabel 6850 3950 0    60   Input ~ 0
+#15_RXD
+Wire Wire Line
+	6850 3950 7400 3950
+$Comp
+L D_ALT D1
+U 1 1 58CBE3FA
+P 4650 3800
+F 0 "D1" H 4650 3900 50  0000 C CNN
+F 1 "MBR0520L" H 4650 3700 50  0000 C CNN
+F 2 "KiCad/Diodes_SMD.pretty:SOD-123" H 4650 3800 50  0001 C CNN
+F 3 "" H 4650 3800 50  0000 C CNN
+	1    4650 3800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5200 3800 4800 3800
+Text GLabel 6850 3750 0    60   Input ~ 0
+#18_PWM
+Wire Wire Line
+	6850 3750 7400 3750
+Text GLabel 6850 3550 0    60   Input ~ 0
+#3_SCL
+Wire Wire Line
+	6850 3550 7400 3550
+NoConn ~ 7400 3650
+NoConn ~ 7400 3850
+Text GLabel 6850 4050 0    60   Input ~ 0
+#2_SDA
+Wire Wire Line
+	6850 4050 7400 4050
+Wire Wire Line
+	5700 3050 5700 3400
+Wire Wire Line
+	5800 3050 5800 3250
+Connection ~ 5800 3250
+Wire Wire Line
+	5900 3050 5900 3250
+Connection ~ 5900 3250
+Wire Wire Line
+	5600 3250 5600 3050
+Connection ~ 5500 3250
+Text GLabel 5500 4200 1    60   Input ~ 0
+#14_TXD
+Text GLabel 5600 4200 1    60   Input ~ 0
+#15_RXD
+Text GLabel 5700 4200 1    60   Input ~ 0
+#2_SDA
+Text GLabel 5800 4200 1    60   Input ~ 0
+#3_SCL
+Text GLabel 5900 4200 1    60   Input ~ 0
+#18_PWM
+Wire Wire Line
+	5500 4200 5500 4350
+Wire Wire Line
+	5600 4200 5600 4350
+Wire Wire Line
+	5700 4200 5700 4350
+Wire Wire Line
+	5800 4200 5800 4350
+Wire Wire Line
+	5900 4200 5900 4350
+$Comp
+L PWR_FLAG #FLG03
+U 1 1 58CBE926
+P 4850 2950
+F 0 "#FLG03" H 4850 3045 50  0001 C CNN
+F 1 "PWR_FLAG" H 4850 3130 50  0000 C CNN
+F 2 "" H 4850 2950 50  0000 C CNN
+F 3 "" H 4850 2950 50  0000 C CNN
+	1    4850 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 2950 4850 3100
+Wire Wire Line
+	4850 3100 5200 3100
+Connection ~ 5200 3100
+NoConn ~ 4250 3500
+NoConn ~ 4250 3600
+NoConn ~ 4250 3700
+$Comp
+L PWR_FLAG #FLG04
+U 1 1 58CBEB87
+P 4350 2950
+F 0 "#FLG04" H 4350 3045 50  0001 C CNN
+F 1 "PWR_FLAG" H 4350 3130 50  0000 C CNN
+F 2 "" H 4350 2950 50  0000 C CNN
+F 3 "" H 4350 2950 50  0000 C CNN
+	1    4350 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 2950 4350 3400
+Connection ~ 4350 3400
+Wire Wire Line
+	3850 3200 3850 3100
+Wire Wire Line
+	3850 3100 4350 3100
+Connection ~ 4350 3100
+$Comp
+L LED D2
+U 1 1 58CBEFCF
+P 5000 4000
+F 0 "D2" H 5000 4100 50  0000 C CNN
+F 1 "LED" H 5000 3900 50  0000 C CNN
+F 2 "KiCad/LEDs.pretty:LED_0805" H 5000 4000 50  0001 C CNN
+F 3 "" H 5000 4000 50  0000 C CNN
+	1    5000 4000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R1
+U 1 1 58CBF036
+P 5000 4350
+F 0 "R1" V 5080 4350 50  0000 C CNN
+F 1 "R330" V 5000 4350 50  0000 C CNN
+F 2 "KiCad/Resistors_SMD.pretty:R_0603" V 4930 4350 50  0001 C CNN
+F 3 "" H 5000 4350 50  0000 C CNN
+	1    5000 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 3800 5000 3850
+Connection ~ 5000 3800
+Wire Wire Line
+	5000 4150 5000 4200
+$Comp
+L GND #PWR05
+U 1 1 58CBF17C
+P 5000 4600
+F 0 "#PWR05" H 5000 4350 50  0001 C CNN
+F 1 "GND" H 5000 4450 50  0000 C CNN
+F 2 "" H 5000 4600 50  0000 C CNN
+F 3 "" H 5000 4600 50  0000 C CNN
+	1    5000 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 4500 5000 4600
+$EndSCHEMATC

@@ -1,0 +1,843 @@
+EESchema Schematic File Version 4
+LIBS:whitterm-hat-cache
+EELAYER 26 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 3 5
+Title "WT-220 Hat Microcontroller"
+Date ""
+Rev ""
+Comp "JBR Engineering Research Ltd"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:Crystal Y1
+U 1 1 5AB062C8
+P 5700 2500
+F 0 "Y1" H 5700 2650 50  0000 C CNN
+F 1 "32.768" H 5700 2350 50  0000 C CNN
+F 2 "StefanHamminga/SH_Crystals_Oscillators.pretty:Crystal_2-SMD_2x1.2mm" H 5700 2500 50  0001 C CNN
+F 3 "https://docs-emea.rs-online.com/webdocs/0f59/0900766b80f59f41.pdf" H 5700 2500 50  0001 C CNN
+F 4 " Micro Crystal" H 5700 2500 60  0001 C CNN "MFN"
+F 5 "CM8V-32.768-TA-020-7 " H 5700 2500 60  0001 C CNN "MFP"
+	1    5700 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C9
+U 1 1 5AB062C9
+P 5350 2650
+F 0 "C9" H 5360 2720 50  0000 L CNN
+F 1 "15pF" H 5360 2570 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 5350 2650 50  0001 C CNN
+F 3 "" H 5350 2650 50  0001 C CNN
+	1    5350 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C12
+U 1 1 5AB062CA
+P 6050 2650
+F 0 "C12" H 6060 2720 50  0000 L CNN
+F 1 "15pF" H 6060 2570 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 6050 2650 50  0001 C CNN
+F 3 "" H 6050 2650 50  0001 C CNN
+	1    6050 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C15
+U 1 1 5AB062CD
+P 11000 3750
+F 0 "C15" H 11010 3820 50  0000 L CNN
+F 1 "0.1uF" H 11010 3670 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 11000 3750 50  0001 C CNN
+F 3 "" H 11000 3750 50  0001 C CNN
+	1    11000 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C14
+U 1 1 5AB062CE
+P 10950 4650
+F 0 "C14" H 10960 4720 50  0000 L CNN
+F 1 "0.1uF" H 10960 4570 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 10950 4650 50  0001 C CNN
+F 3 "" H 10950 4650 50  0001 C CNN
+	1    10950 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C13
+U 1 1 5AB062D1
+P 10750 3750
+F 0 "C13" H 10760 3820 50  0000 L CNN
+F 1 "0.1uF" H 10760 3670 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 10750 3750 50  0001 C CNN
+F 3 "" H 10750 3750 50  0001 C CNN
+	1    10750 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C8
+U 1 1 5AB062D2
+P 5300 5050
+F 0 "C8" H 5310 5120 50  0000 L CNN
+F 1 "0.1uF" H 5310 4970 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 5300 5050 50  0001 C CNN
+F 3 "" H 5300 5050 50  0001 C CNN
+	1    5300 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C10
+U 1 1 5AB062D5
+P 5350 3800
+F 0 "C10" H 5360 3870 50  0000 L CNN
+F 1 "0.1uF" H 5360 3720 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 5350 3800 50  0001 C CNN
+F 3 "" H 5350 3800 50  0001 C CNN
+	1    5350 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C11
+U 1 1 5AB062D6
+P 5600 3800
+F 0 "C11" H 5610 3870 50  0000 L CNN
+F 1 "0.01uF" H 5610 3720 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 5600 3800 50  0001 C CNN
+F 3 "" H 5600 3800 50  0001 C CNN
+	1    5600 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0121
+U 1 1 5AB062D7
+P 5000 2600
+F 0 "#PWR0121" H 5000 2450 50  0001 C CNN
+F 1 "VCC" H 5000 2750 50  0000 C CNN
+F 2 "" H 5000 2600 50  0001 C CNN
+F 3 "" H 5000 2600 50  0001 C CNN
+	1    5000 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Ferrite_Bead_Small L1
+U 1 1 5AB062D8
+P 5150 3600
+F 0 "L1" H 5225 3650 50  0000 L CNN
+F 1 "LM18P" H 5225 3550 50  0000 L CNN
+F 2 "KiCad/Inductor_SMD.pretty:L_0603_1608Metric" V 5080 3600 50  0001 C CNN
+F 3 "" H 5150 3600 50  0001 C CNN
+F 4 "Murata" H 5150 3600 60  0001 C CNN "MFN"
+F 5 "LM18PG471SN1" H 5150 3600 60  0001 C CNN "MFP"
+	1    5150 3600
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J5
+U 1 1 5AB062D9
+P 8500 8050
+F 0 "J5" H 8550 8350 50  0000 C CNN
+F 1 "Conn_02x05_Odd_Even" H 8550 7750 50  0000 C CNN
+F 2 "KiCad/Connector_PinHeader_1.27mm.pretty:PinHeader_2x05_P1.27mm_Vertical_SMD" H 8500 8050 50  0001 C CNN
+F 3 "" H 8500 8050 50  0001 C CNN
+	1    8500 8050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R25
+U 1 1 5AB062DB
+P 7500 8050
+F 0 "R25" H 7530 8070 50  0000 L CNN
+F 1 "10k" H 7530 8010 50  0000 L CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 7500 8050 50  0001 C CNN
+F 3 "" H 7500 8050 50  0001 C CNN
+	1    7500 8050
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6350 5400
+NoConn ~ 9850 4200
+NoConn ~ 9850 3200
+Wire Wire Line
+	5350 2550 5350 2500
+Wire Wire Line
+	5250 2500 5350 2500
+Wire Wire Line
+	5850 2500 6050 2500
+Wire Wire Line
+	6050 2500 6050 2550
+Wire Wire Line
+	6050 2850 6050 2750
+Wire Wire Line
+	5350 2850 5700 2850
+Wire Wire Line
+	5350 2850 5350 2750
+Wire Wire Line
+	5700 2900 5700 2850
+Connection ~ 5700 2850
+Wire Wire Line
+	6350 2500 6350 3100
+Connection ~ 6050 2500
+Wire Wire Line
+	5250 2500 5250 3200
+Wire Wire Line
+	5250 3200 6350 3200
+Connection ~ 5350 2500
+Wire Wire Line
+	9850 3300 10000 3300
+Wire Wire Line
+	9850 3400 10000 3400
+Wire Wire Line
+	9850 3100 10000 3100
+Wire Wire Line
+	9850 3900 10000 3900
+Wire Wire Line
+	9850 4000 10000 4000
+Wire Wire Line
+	9850 5500 10000 5500
+Wire Wire Line
+	11200 4500 11200 3500
+Connection ~ 11200 3500
+Wire Wire Line
+	9850 4600 10700 4600
+Wire Wire Line
+	10700 4600 10700 4800
+Wire Wire Line
+	10700 4800 10950 4800
+Wire Wire Line
+	10950 4750 10950 4800
+Connection ~ 10950 4800
+Wire Wire Line
+	9850 4500 10950 4500
+Wire Wire Line
+	10950 4500 10950 4550
+Wire Wire Line
+	9850 3500 11000 3500
+Wire Wire Line
+	11000 3500 11000 3650
+Wire Wire Line
+	11000 3850 11000 3900
+Connection ~ 11000 3500
+Connection ~ 10950 4500
+Wire Wire Line
+	9850 3600 10750 3600
+Wire Wire Line
+	10750 3600 10750 3650
+Wire Wire Line
+	10750 3850 10750 3900
+Wire Wire Line
+	10650 3900 10750 3900
+Connection ~ 11000 3900
+Wire Wire Line
+	5300 4950 5300 4900
+Wire Wire Line
+	5000 4900 5300 4900
+Wire Wire Line
+	6350 5000 5550 5000
+Wire Wire Line
+	5550 5000 5550 5200
+Wire Wire Line
+	5550 5200 5300 5200
+Wire Wire Line
+	5300 5150 5300 5200
+Connection ~ 5300 5200
+Wire Wire Line
+	5250 3600 5350 3600
+Wire Wire Line
+	5350 3600 5350 3700
+Wire Wire Line
+	5600 3700 5600 3600
+Connection ~ 5600 3600
+Wire Wire Line
+	5350 3900 5350 3950
+Wire Wire Line
+	5350 3950 5600 3950
+Wire Wire Line
+	5600 3950 5600 3900
+Connection ~ 5350 3950
+Wire Wire Line
+	6350 3500 5850 3500
+Wire Wire Line
+	5850 3500 5850 3950
+Connection ~ 5600 3950
+Wire Wire Line
+	5000 2600 5000 3600
+Connection ~ 5350 3600
+Connection ~ 5300 4900
+Wire Wire Line
+	5050 3600 5000 3600
+Connection ~ 5000 3600
+Wire Wire Line
+	7500 7600 7500 7950
+Wire Wire Line
+	7500 8150 7500 8250
+Wire Wire Line
+	7300 8250 7500 8250
+Connection ~ 7500 8250
+Wire Wire Line
+	8200 7950 8050 7950
+Wire Wire Line
+	8050 7850 8200 7850
+Wire Wire Line
+	8700 7850 9100 7850
+Wire Wire Line
+	9100 7850 9100 7600
+Wire Wire Line
+	8700 7950 9100 7950
+Wire Wire Line
+	9100 7950 9100 8050
+Wire Wire Line
+	8700 8050 9100 8050
+Connection ~ 9100 8050
+Wire Notes Line
+	6650 7250 9550 7250
+Wire Notes Line
+	9550 7250 9550 8800
+Wire Notes Line
+	9550 8800 6650 8800
+Wire Notes Line
+	6650 8800 6650 7250
+Wire Wire Line
+	9850 3700 10650 3700
+Wire Wire Line
+	10650 3700 10650 3900
+Connection ~ 10750 3900
+Wire Wire Line
+	5700 2850 6050 2850
+Wire Wire Line
+	6050 2500 6350 2500
+Wire Wire Line
+	5350 2500 5550 2500
+Wire Wire Line
+	11200 3500 11200 2600
+Wire Wire Line
+	10950 4800 10950 4850
+Wire Wire Line
+	11000 3500 11200 3500
+Wire Wire Line
+	10950 4500 11200 4500
+Wire Wire Line
+	11000 3900 11000 4050
+Wire Wire Line
+	5300 5200 5300 5250
+Wire Wire Line
+	5600 3600 6350 3600
+Wire Wire Line
+	5350 3950 5350 4000
+Wire Wire Line
+	5600 3950 5850 3950
+Wire Wire Line
+	5350 3600 5600 3600
+Wire Wire Line
+	5300 4900 6350 4900
+Wire Wire Line
+	5000 3600 5000 4900
+Wire Wire Line
+	7500 8250 8200 8250
+Wire Wire Line
+	9100 8050 9100 8500
+Wire Wire Line
+	10750 3900 11000 3900
+$Comp
+L power:VCC #PWR0122
+U 1 1 5C632ABE
+P 11200 2600
+F 0 "#PWR0122" H 11200 2450 50  0001 C CNN
+F 1 "VCC" H 11200 2750 50  0000 C CNN
+F 2 "" H 11200 2600 50  0001 C CNN
+F 3 "" H 11200 2600 50  0001 C CNN
+	1    11200 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0123
+U 1 1 5C661F9A
+P 5350 4000
+F 0 "#PWR0123" H 5350 3750 50  0001 C CNN
+F 1 "GND" H 5355 3827 50  0000 C CNN
+F 2 "" H 5350 4000 50  0001 C CNN
+F 3 "" H 5350 4000 50  0001 C CNN
+	1    5350 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0124
+U 1 1 5C667831
+P 5700 2900
+F 0 "#PWR0124" H 5700 2650 50  0001 C CNN
+F 1 "GND" H 5705 2727 50  0000 C CNN
+F 2 "" H 5700 2900 50  0001 C CNN
+F 3 "" H 5700 2900 50  0001 C CNN
+	1    5700 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0125
+U 1 1 5C66D41C
+P 5300 5250
+F 0 "#PWR0125" H 5300 5000 50  0001 C CNN
+F 1 "GND" H 5305 5077 50  0000 C CNN
+F 2 "" H 5300 5250 50  0001 C CNN
+F 3 "" H 5300 5250 50  0001 C CNN
+	1    5300 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0126
+U 1 1 5C67F58F
+P 10950 4850
+F 0 "#PWR0126" H 10950 4600 50  0001 C CNN
+F 1 "GND" H 10955 4677 50  0000 C CNN
+F 2 "" H 10950 4850 50  0001 C CNN
+F 3 "" H 10950 4850 50  0001 C CNN
+	1    10950 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0127
+U 1 1 5C67F70C
+P 11000 4050
+F 0 "#PWR0127" H 11000 3800 50  0001 C CNN
+F 1 "GND" H 11005 3877 50  0000 C CNN
+F 2 "" H 11000 4050 50  0001 C CNN
+F 3 "" H 11000 4050 50  0001 C CNN
+	1    11000 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L whitterm-hat-rescue:SAMD21G18A-jbr-ics IC1
+U 1 1 5C61ABF0
+P 8050 4400
+AR Path="/5C61ABF0" Ref="IC1"  Part="1" 
+AR Path="/5C619272/5C61ABF0" Ref="IC1"  Part="1" 
+F 0 "IC1" H 8100 6369 100 0000 C CNN
+F 1 "SAMD21G18A" H 8100 6203 100 0000 C CNN
+F 2 "KiCad/Package_QFP.pretty:TQFP-48_7x7mm_P0.5mm" H 8100 6075 50  0000 C CNN
+F 3 "" H 8050 4400 50  0001 C CNN
+F 4 "SAMD21G18A-AUT" H 8050 4400 50  0001 C CNN "VALUE"
+	1    8050 4400
+	1    0    0    -1  
+$EndComp
+Text HLabel 6300 5500 0    50   BiDi ~ 0
+D2
+Text HLabel 6300 5600 0    50   BiDi ~ 0
+D5
+Text HLabel 9900 4900 2    50   BiDi ~ 0
+SCL
+Text HLabel 9900 5000 2    50   BiDi ~ 0
+SDA
+$Comp
+L Reference_Voltage:LM285Z-1.2 D8
+U 1 1 5C6D852D
+P 4300 3700
+F 0 "D8" V 4346 3612 50  0000 R CNN
+F 1 "LM285Z-1.2" V 4255 3612 50  0000 R CNN
+F 2 "KiCad/Package_TO_SOT_THT.pretty:TO-92_Inline" H 4300 3500 50  0001 C CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/LM285-D.PDF" H 4300 3700 50  0001 C CIN
+	1    4300 3700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R24
+U 1 1 5C6D8F73
+P 4300 3200
+F 0 "R24" H 4330 3220 50  0000 L CNN
+F 1 "10k" H 4330 3160 50  0000 L CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 4300 3200 50  0001 C CNN
+F 3 "" H 4300 3200 50  0001 C CNN
+	1    4300 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C7
+U 1 1 5C6D936B
+P 3900 3700
+F 0 "C7" H 3910 3770 50  0000 L CNN
+F 1 "1uF" H 3910 3620 50  0000 L CNN
+F 2 "KiCad/Capacitor_SMD.pretty:C_0603_1608Metric" H 3900 3700 50  0001 C CNN
+F 3 "" H 3900 3700 50  0001 C CNN
+	1    3900 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 3400 4650 3400
+Wire Wire Line
+	4300 3300 4300 3400
+Connection ~ 4300 3400
+Wire Wire Line
+	4300 3400 4300 3500
+Wire Wire Line
+	3900 3600 3900 3500
+Wire Wire Line
+	3900 3500 4300 3500
+Wire Wire Line
+	4300 3500 4300 3550
+Connection ~ 4300 3500
+$Comp
+L power:GND #PWR0128
+U 1 1 5C6ECA6E
+P 4300 4000
+F 0 "#PWR0128" H 4300 3750 50  0001 C CNN
+F 1 "GND" H 4305 3827 50  0000 C CNN
+F 2 "" H 4300 4000 50  0001 C CNN
+F 3 "" H 4300 4000 50  0001 C CNN
+	1    4300 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 3800 3900 3950
+Wire Wire Line
+	3900 3950 4300 3950
+Connection ~ 4300 3950
+Wire Wire Line
+	4300 3950 4300 4000
+Wire Wire Line
+	4300 3850 4300 3950
+$Comp
+L power:VCC #PWR0129
+U 1 1 5C6F8845
+P 4300 2600
+F 0 "#PWR0129" H 4300 2450 50  0001 C CNN
+F 1 "VCC" H 4300 2750 50  0000 C CNN
+F 2 "" H 4300 2600 50  0001 C CNN
+F 3 "" H 4300 2600 50  0001 C CNN
+	1    4300 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 2600 4300 3100
+Text Notes 7850 7450 0    50   ~ 0
+ISP Header
+$Comp
+L Device:LED URX1
+U 1 1 5C70C97D
+P 13850 3800
+F 0 "URX1" V 13888 3683 50  0000 R CNN
+F 1 "RXD" V 13797 3683 50  0000 R CNN
+F 2 "KiCad/LED_SMD.pretty:LED_0603_1608Metric" H 13850 3800 50  0001 C CNN
+F 3 "~" H 13850 3800 50  0001 C CNN
+F 4 "Kingbright" H 13850 3800 50  0001 C CNN "MFN"
+F 5 "KP-2012SEC" H 13850 3800 50  0001 C CNN "MFP"
+F 6 "Orange" H 13850 3800 50  0001 C CNN "Characteristics"
+F 7 "RS232 LED" H 13850 3800 50  0001 C CNN "Description"
+	1    13850 3800
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 5C70C988
+P 13850 4250
+AR Path="/5C556852/5C70C988" Ref="D?"  Part="1" 
+AR Path="/5C619272/5C70C988" Ref="UTX1"  Part="1" 
+F 0 "UTX1" V 13888 4133 50  0000 R CNN
+F 1 "TXD" V 13797 4133 50  0000 R CNN
+F 2 "KiCad/LED_SMD.pretty:LED_0603_1608Metric" H 13850 4250 50  0001 C CNN
+F 3 "~" H 13850 4250 50  0001 C CNN
+F 4 "Kingbright" H 13850 4250 50  0001 C CNN "MFN"
+F 5 "KP-2012SEC" H 13850 4250 50  0001 C CNN "MFP"
+F 6 "Orange" H 13850 4250 50  0001 C CNN "Characteristics"
+F 7 "RS232 LED" H 13850 4250 50  0001 C CNN "Description"
+	1    13850 4250
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R26
+U 1 1 5C70C98F
+P 13350 3800
+F 0 "R26" V 13143 3800 50  0000 C CNN
+F 1 "110R" V 13234 3800 50  0000 C CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" V 13280 3800 50  0001 C CNN
+F 3 "~" H 13350 3800 50  0001 C CNN
+	1    13350 3800
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:R R27
+U 1 1 5C70C996
+P 13350 4250
+F 0 "R27" V 13143 4250 50  0000 C CNN
+F 1 "110R" V 13234 4250 50  0000 C CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" V 13280 4250 50  0001 C CNN
+F 3 "~" H 13350 4250 50  0001 C CNN
+	1    13350 4250
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	13500 3800 13700 3800
+Wire Wire Line
+	13500 4250 13700 4250
+$Comp
+L power:VCC #PWR0130
+U 1 1 5C70C9A5
+P 14600 3600
+F 0 "#PWR0130" H 14600 3450 50  0001 C CNN
+F 1 "VCC" H 14617 3773 50  0000 C CNN
+F 2 "" H 14600 3600 50  0001 C CNN
+F 3 "" H 14600 3600 50  0001 C CNN
+	1    14600 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14600 3600 14600 3800
+Wire Wire Line
+	14000 3800 14600 3800
+Wire Wire Line
+	14000 4250 14600 4250
+Wire Wire Line
+	14600 4250 14600 3800
+Connection ~ 14600 3800
+Text Label 10000 3100 0    50   ~ 0
+RX_LED
+Text Label 10000 4000 0    50   ~ 0
+TX_LED
+Text Label 12550 3800 0    50   ~ 0
+RX_LED
+Text Label 12550 4250 0    50   ~ 0
+TX_LED
+$Comp
+L Device:LED D?
+U 1 1 5C72866E
+P 13850 4700
+AR Path="/5C556852/5C72866E" Ref="D?"  Part="1" 
+AR Path="/5C619272/5C72866E" Ref="D11"  Part="1" 
+F 0 "D11" V 13888 4583 50  0000 R CNN
+F 1 "D13" V 13797 4583 50  0000 R CNN
+F 2 "KiCad/LED_SMD.pretty:LED_0603_1608Metric" H 13850 4700 50  0001 C CNN
+F 3 "~" H 13850 4700 50  0001 C CNN
+F 4 "LTW-C191TS5" H 13850 4700 50  0001 C CNN "MFP"
+F 5 "White" H 13850 4700 50  0001 C CNN "Characteristics"
+F 6 "uC utility LED" H 13850 4700 50  0001 C CNN "Description"
+	1    13850 4700
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R28
+U 1 1 5C728675
+P 13350 4700
+F 0 "R28" V 13143 4700 50  0000 C CNN
+F 1 "110R" V 13234 4700 50  0000 C CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" V 13280 4700 50  0001 C CNN
+F 3 "~" H 13350 4700 50  0001 C CNN
+	1    13350 4700
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	13500 4700 13700 4700
+Wire Wire Line
+	14000 4700 14600 4700
+Wire Wire Line
+	14600 4700 14600 4250
+Text Label 12550 4700 0    50   ~ 0
+D13
+Text Label 10000 5500 0    50   ~ 0
+D13
+Wire Wire Line
+	12550 3800 13200 3800
+Wire Wire Line
+	12550 4250 13200 4250
+Wire Wire Line
+	12550 4700 13200 4700
+Connection ~ 14600 4250
+Text HLabel 6300 4600 0    50   BiDi ~ 0
+D3
+Text Label 10000 3300 0    60   ~ 0
+SWDIO
+Text Label 10000 3400 0    60   ~ 0
+SWDCLK
+Text Label 8050 7850 2    60   ~ 0
+SWDIO
+Text Label 8050 7950 2    60   ~ 0
+SWDCLK
+Text Label 7300 8250 2    60   ~ 0
+NRST
+NoConn ~ 8200 8050
+NoConn ~ 8200 8150
+NoConn ~ 8700 8150
+NoConn ~ 8700 8250
+$Comp
+L power:VCC #PWR0156
+U 1 1 5CC3E38F
+P 7500 7600
+F 0 "#PWR0156" H 7500 7450 50  0001 C CNN
+F 1 "VCC" H 7517 7773 50  0000 C CNN
+F 2 "" H 7500 7600 50  0001 C CNN
+F 3 "" H 7500 7600 50  0001 C CNN
+	1    7500 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0157
+U 1 1 5CC3E70F
+P 9100 8500
+F 0 "#PWR0157" H 9100 8250 50  0001 C CNN
+F 1 "GND" H 9105 8327 50  0000 C CNN
+F 2 "" H 9100 8500 50  0001 C CNN
+F 3 "" H 9100 8500 50  0001 C CNN
+	1    9100 8500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0158
+U 1 1 5CC3EE63
+P 9100 7600
+F 0 "#PWR0158" H 9100 7450 50  0001 C CNN
+F 1 "VCC" H 9117 7773 50  0000 C CNN
+F 2 "" H 9100 7600 50  0001 C CNN
+F 3 "" H 9100 7600 50  0001 C CNN
+	1    9100 7600
+	1    0    0    -1  
+$EndComp
+Text Notes 3250 3750 0    50   ~ 0
+1.275 V ref
+Text HLabel 9900 4700 2    60   BiDi ~ 0
+D+
+Text HLabel 9900 4800 2    60   BiDi ~ 0
+D-
+Text HLabel 5800 4700 0    60   Output ~ 0
+SAMD_TXD
+Text HLabel 5800 4800 0    60   Input ~ 0
+SAMD_RXD
+Text Label 10000 3900 0    60   ~ 0
+NRST
+Text HLabel 9900 3800 2    60   Input ~ 0
+USB_H_EN
+Text HLabel 9900 5100 2    60   Input ~ 0
+D7
+Text HLabel 9900 5200 2    60   Input ~ 0
+D6
+Text HLabel 9900 5300 2    60   Input ~ 0
+D12
+Text HLabel 9900 5400 2    60   Input ~ 0
+D10
+Text HLabel 9900 5600 2    60   Input ~ 0
+D11
+Text HLabel 6300 5300 0    60   Input ~ 0
+MISO
+Text HLabel 6300 5200 0    60   Input ~ 0
+SCK
+Text HLabel 6300 5100 0    60   Input ~ 0
+MOSI
+Text HLabel 6300 4500 0    60   Input ~ 0
+D4
+Text HLabel 6300 4200 0    60   Input ~ 0
+D9
+Text HLabel 6300 4100 0    60   Input ~ 0
+D8
+Text HLabel 6300 4000 0    60   Input ~ 0
+A4
+Text HLabel 6300 3900 0    60   Input ~ 0
+A3
+Text HLabel 6300 3800 0    60   Input ~ 0
+A2
+Text HLabel 6300 3700 0    60   Input ~ 0
+A1
+Text HLabel 6300 3300 0    60   Input ~ 0
+A0_DAC
+Wire Wire Line
+	6300 3300 6350 3300
+Wire Wire Line
+	6300 3700 6350 3700
+Wire Wire Line
+	6300 3800 6350 3800
+Wire Wire Line
+	6300 3900 6350 3900
+Wire Wire Line
+	6300 4000 6350 4000
+Wire Wire Line
+	6300 4100 6350 4100
+Wire Wire Line
+	6300 4200 6350 4200
+Wire Wire Line
+	6300 4500 6350 4500
+Wire Wire Line
+	6350 4600 6300 4600
+Wire Wire Line
+	6350 4700 5850 4700
+Wire Wire Line
+	5800 4800 5950 4800
+Wire Wire Line
+	6300 5100 6350 5100
+Wire Wire Line
+	6300 5200 6350 5200
+Wire Wire Line
+	6300 5300 6350 5300
+Wire Wire Line
+	6300 5500 6350 5500
+Wire Wire Line
+	6300 5600 6350 5600
+NoConn ~ 9850 4100
+Wire Wire Line
+	9850 3800 9900 3800
+Wire Wire Line
+	9850 4700 9900 4700
+Wire Wire Line
+	9850 4800 9900 4800
+Wire Wire Line
+	9850 4900 9900 4900
+Wire Wire Line
+	9850 5000 9900 5000
+Wire Wire Line
+	9850 5100 9900 5100
+Wire Wire Line
+	9850 5200 9900 5200
+Wire Wire Line
+	9850 5300 9900 5300
+Wire Wire Line
+	9850 5400 9900 5400
+Wire Wire Line
+	9850 5600 9900 5600
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5D69EBF5
+P 5850 4700
+AR Path="/5D69EBF5" Ref="TP?"  Part="1" 
+AR Path="/5C619272/5D69EBF5" Ref="TP23"  Part="1" 
+F 0 "TP23" H 5800 4900 50  0000 L CNN
+F 1 "TestPoint" H 5908 4729 50  0001 L CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 6050 4700 50  0001 C CNN
+F 3 "~" H 6050 4700 50  0001 C CNN
+	1    5850 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5D6A349D
+P 5950 4800
+AR Path="/5D6A349D" Ref="TP?"  Part="1" 
+AR Path="/5C619272/5D6A349D" Ref="TP24"  Part="1" 
+F 0 "TP24" H 5950 5000 50  0000 L CNN
+F 1 "TestPoint" H 6008 4829 50  0001 L CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 6150 4800 50  0001 C CNN
+F 3 "~" H 6150 4800 50  0001 C CNN
+	1    5950 4800
+	1    0    0    -1  
+$EndComp
+Connection ~ 5950 4800
+Wire Wire Line
+	5950 4800 6350 4800
+Connection ~ 5850 4700
+Wire Wire Line
+	5850 4700 5800 4700
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5D6B9E02
+P 4650 3400
+AR Path="/5D6B9E02" Ref="TP?"  Part="1" 
+AR Path="/5C619272/5D6B9E02" Ref="TP22"  Part="1" 
+F 0 "TP22" H 4600 3600 50  0000 L CNN
+F 1 "TestPoint" H 4708 3429 50  0001 L CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 4850 3400 50  0001 C CNN
+F 3 "~" H 4850 3400 50  0001 C CNN
+	1    4650 3400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4650 3400
+Wire Wire Line
+	4650 3400 6350 3400
+$EndSCHEMATC
