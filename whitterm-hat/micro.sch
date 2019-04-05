@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:whitterm-hat-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -411,10 +411,10 @@ F 3 "" H 11000 4050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L whitterm-hat-rescue:SAMD21G18A-jbr-ics IC1
+L whitterm-hat-rescue:SAMD21G18A-jbr-ics IC?
 U 1 1 5C61ABF0
 P 8050 4400
-AR Path="/5C61ABF0" Ref="IC1"  Part="1" 
+AR Path="/5C61ABF0" Ref="IC?"  Part="1" 
 AR Path="/5C619272/5C61ABF0" Ref="IC1"  Part="1" 
 F 0 "IC1" H 8100 6369 100 0000 C CNN
 F 1 "SAMD21G18A" H 8100 6203 100 0000 C CNN
@@ -432,17 +432,6 @@ Text HLabel 9900 4900 2    50   BiDi ~ 0
 SCL
 Text HLabel 9900 5000 2    50   BiDi ~ 0
 SDA
-$Comp
-L Reference_Voltage:LM285Z-1.2 D8
-U 1 1 5C6D852D
-P 4300 3700
-F 0 "D8" V 4346 3612 50  0000 R CNN
-F 1 "LM285Z-1.2" V 4255 3612 50  0000 R CNN
-F 2 "KiCad/Package_TO_SOT_THT.pretty:TO-92_Inline" H 4300 3500 50  0001 C CIN
-F 3 "http://www.onsemi.com/pub_link/Collateral/LM285-D.PDF" H 4300 3700 50  0001 C CIN
-	1    4300 3700
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Device:R_Small R24
 U 1 1 5C6D8F73
@@ -572,17 +561,6 @@ Wire Wire Line
 	13500 3800 13700 3800
 Wire Wire Line
 	13500 4250 13700 4250
-$Comp
-L power:VCC #PWR0130
-U 1 1 5C70C9A5
-P 14600 3600
-F 0 "#PWR0130" H 14600 3450 50  0001 C CNN
-F 1 "VCC" H 14617 3773 50  0000 C CNN
-F 2 "" H 14600 3600 50  0001 C CNN
-F 3 "" H 14600 3600 50  0001 C CNN
-	1    14600 3600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	14600 3600 14600 3800
 Wire Wire Line
@@ -700,9 +678,9 @@ D+
 Text HLabel 9900 4800 2    60   BiDi ~ 0
 D-
 Text HLabel 5800 4700 0    60   Output ~ 0
-SAMD_TXD
+TXD
 Text HLabel 5800 4800 0    60   Input ~ 0
-SAMD_RXD
+RXD
 Text Label 10000 3900 0    60   ~ 0
 NRST
 Text HLabel 9900 3800 2    60   Input ~ 0
@@ -715,8 +693,6 @@ Text HLabel 9900 5300 2    60   Input ~ 0
 D12
 Text HLabel 9900 5400 2    60   Input ~ 0
 D10
-Text HLabel 9900 5600 2    60   Input ~ 0
-D11
 Text HLabel 6300 5300 0    60   Input ~ 0
 MISO
 Text HLabel 6300 5200 0    60   Input ~ 0
@@ -790,8 +766,6 @@ Wire Wire Line
 	9850 5300 9900 5300
 Wire Wire Line
 	9850 5400 9900 5400
-Wire Wire Line
-	9850 5600 9900 5600
 $Comp
 L Connector:TestPoint TP?
 U 1 1 5D69EBF5
@@ -800,7 +774,7 @@ AR Path="/5D69EBF5" Ref="TP?"  Part="1"
 AR Path="/5C619272/5D69EBF5" Ref="TP23"  Part="1" 
 F 0 "TP23" H 5800 4900 50  0000 L CNN
 F 1 "TestPoint" H 5908 4729 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 6050 4700 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 6050 4700 50  0001 C CNN
 F 3 "~" H 6050 4700 50  0001 C CNN
 	1    5850 4700
 	1    0    0    -1  
@@ -813,7 +787,7 @@ AR Path="/5D6A349D" Ref="TP?"  Part="1"
 AR Path="/5C619272/5D6A349D" Ref="TP24"  Part="1" 
 F 0 "TP24" H 5950 5000 50  0000 L CNN
 F 1 "TestPoint" H 6008 4829 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 6150 4800 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 6150 4800 50  0001 C CNN
 F 3 "~" H 6150 4800 50  0001 C CNN
 	1    5950 4800
 	1    0    0    -1  
@@ -832,7 +806,7 @@ AR Path="/5D6B9E02" Ref="TP?"  Part="1"
 AR Path="/5C619272/5D6B9E02" Ref="TP22"  Part="1" 
 F 0 "TP22" H 4600 3600 50  0000 L CNN
 F 1 "TestPoint" H 4708 3429 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 4850 3400 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 4850 3400 50  0001 C CNN
 F 3 "~" H 4850 3400 50  0001 C CNN
 	1    4650 3400
 	1    0    0    -1  
@@ -840,4 +814,89 @@ $EndComp
 Connection ~ 4650 3400
 Wire Wire Line
 	4650 3400 6350 3400
+$Comp
+L Reference_Voltage:LM285D-1.2 D8
+U 1 1 5C6D852D
+P 4300 3700
+F 0 "D8" V 4346 3612 50  0000 R CNN
+F 1 "LM285Z-1.2" V 4255 3612 50  0000 R CNN
+F 2 "KiCad/Package_SO.pretty:SOIC-8_3.9x4.9mm_P1.27mm" H 4300 3500 50  0001 C CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/LM285-D.PDF" H 4300 3700 50  0001 C CIN
+	1    4300 3700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Switch:SW_Push SW2
+U 1 1 5CA712A5
+P 13550 7600
+F 0 "SW2" V 13596 7552 50  0000 R CNN
+F 1 "SW_Push" V 13505 7552 50  0000 R CNN
+F 2 "mcous/kicad-lib/footprints/switch.pretty:SPST-4-PIN_6mm_sm" H 13550 7800 50  0001 C CNN
+F 3 "~" H 13550 7800 50  0001 C CNN
+F 4 "TE" H 13550 7600 50  0001 C CNN "MFN"
+F 5 "4-1437565-1" H 13550 7600 50  0001 C CNN "MFP"
+	1    13550 7600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R66
+U 1 1 5CA7190D
+P 13550 7050
+F 0 "R66" V 13343 7050 50  0000 C CNN
+F 1 "110R" V 13434 7050 50  0000 C CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" V 13480 7050 50  0001 C CNN
+F 3 "~" H 13550 7050 50  0001 C CNN
+	1    13550 7050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR024
+U 1 1 5CA72F91
+P 13550 7900
+F 0 "#PWR024" H 13550 7650 50  0001 C CNN
+F 1 "GND" H 13555 7727 50  0000 C CNN
+F 2 "" H 13550 7900 50  0001 C CNN
+F 3 "" H 13550 7900 50  0001 C CNN
+	1    13550 7900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13550 7800 13550 7900
+$Comp
+L power:VCC #PWR0130
+U 1 1 5C70C9A5
+P 14600 3600
+F 0 "#PWR0130" H 14600 3450 50  0001 C CNN
+F 1 "VCC" H 14617 3773 50  0000 C CNN
+F 2 "" H 14600 3600 50  0001 C CNN
+F 3 "" H 14600 3600 50  0001 C CNN
+	1    14600 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR023
+U 1 1 5CA82980
+P 13550 6750
+F 0 "#PWR023" H 13550 6600 50  0001 C CNN
+F 1 "VCC" H 13567 6923 50  0000 C CNN
+F 2 "" H 13550 6750 50  0001 C CNN
+F 3 "" H 13550 6750 50  0001 C CNN
+	1    13550 6750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13550 6900 13550 6750
+Wire Wire Line
+	13550 7200 13550 7300
+Wire Wire Line
+	13550 7300 13400 7300
+Connection ~ 13550 7300
+Wire Wire Line
+	13550 7300 13550 7400
+Wire Wire Line
+	9850 5600 10000 5600
+Text Label 10000 5600 0    50   ~ 0
+D11
+Text Label 13400 7300 2    50   ~ 0
+D11
 $EndSCHEMATC

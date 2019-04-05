@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:whitterm-hat-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -313,17 +313,6 @@ Wire Wire Line
 Text Notes 12650 5200 0    50   ~ 0
 ON ACT LED PCHAN\n0    0         0   1\n1     0         1   0\n0    1          1   0\n1     1         1   0
 $Comp
-L Device:R R20
-U 1 1 5C572E82
-P 11000 7850
-F 0 "R20" V 11100 7850 50  0000 C CNN
-F 1 "10k" V 10900 7850 50  0000 C CNN
-F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" V 10930 7850 50  0001 C CNN
-F 3 "~" H 11000 7850 50  0001 C CNN
-	1    11000 7850
-	-1   0    0    1   
-$EndComp
-$Comp
 L Device:R R21
 U 1 1 5C573548
 P 10950 5950
@@ -397,7 +386,7 @@ L Device:LED D7
 U 1 1 5C5FF130
 P 12200 7400
 F 0 "D7" V 12238 7283 50  0000 R CNN
-F 1 "RXD" V 12147 7283 50  0000 R CNN
+F 1 "TXD" V 12147 7283 50  0000 R CNN
 F 2 "KiCad/LED_SMD.pretty:LED_0603_1608Metric" H 12200 7400 50  0001 C CNN
 F 3 "~" H 12200 7400 50  0001 C CNN
 F 4 "Kingbright" H 12200 7400 50  0001 C CNN "MFN"
@@ -729,7 +718,7 @@ AR Path="/5D625B1F" Ref="TP?"  Part="1"
 AR Path="/5C556852/5D625B1F" Ref="TP17"  Part="1" 
 F 0 "TP17" H 2558 4524 50  0000 L CNN
 F 1 "TestPoint" H 2558 4479 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 2700 4450 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 2700 4450 50  0001 C CNN
 F 3 "~" H 2700 4450 50  0001 C CNN
 	1    2500 4450
 	1    0    0    -1  
@@ -742,7 +731,7 @@ AR Path="/5D62943B" Ref="TP?"  Part="1"
 AR Path="/5C556852/5D62943B" Ref="TP18"  Part="1" 
 F 0 "TP18" H 2558 4724 50  0000 L CNN
 F 1 "TestPoint" H 2558 4679 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 2700 4650 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 2700 4650 50  0001 C CNN
 F 3 "~" H 2700 4650 50  0001 C CNN
 	1    2500 4650
 	1    0    0    -1  
@@ -755,7 +744,7 @@ AR Path="/5D62D545" Ref="TP?"  Part="1"
 AR Path="/5C556852/5D62D545" Ref="TP21"  Part="1" 
 F 0 "TP21" H 12658 6324 50  0000 L CNN
 F 1 "TestPoint" H 12658 6279 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 12800 6250 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 12800 6250 50  0001 C CNN
 F 3 "~" H 12800 6250 50  0001 C CNN
 	1    12600 6250
 	1    0    0    -1  
@@ -777,7 +766,7 @@ AR Path="/5D6B3F11" Ref="TP?"  Part="1"
 AR Path="/5C556852/5D6B3F11" Ref="TP19"  Part="1" 
 F 0 "TP19" H 7458 3824 50  0000 L CNN
 F 1 "TestPoint" H 7458 3779 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 7600 3750 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 7600 3750 50  0001 C CNN
 F 3 "~" H 7600 3750 50  0001 C CNN
 	1    7400 3750
 	1    0    0    -1  
@@ -793,7 +782,7 @@ AR Path="/5D6B456C" Ref="TP?"  Part="1"
 AR Path="/5C556852/5D6B456C" Ref="TP20"  Part="1" 
 F 0 "TP20" H 7858 3924 50  0000 L CNN
 F 1 "TestPoint" H 7858 3879 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 8000 3850 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 8000 3850 50  0001 C CNN
 F 3 "~" H 8000 3850 50  0001 C CNN
 	1    7800 3850
 	1    0    0    -1  
@@ -831,26 +820,6 @@ F 5 "74LVC2G02 " H 11550 8150 50  0001 C CNN "MFP"
 $EndComp
 Wire Wire Line
 	10800 8100 11250 8100
-$Comp
-L power:VCC #PWR018
-U 1 1 5C85C151
-P 11000 7600
-F 0 "#PWR018" H 11000 7450 50  0001 C CNN
-F 1 "VCC" H 11017 7773 50  0000 C CNN
-F 2 "" H 11000 7600 50  0001 C CNN
-F 3 "" H 11000 7600 50  0001 C CNN
-	1    11000 7600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 7600 11000 7700
-Wire Wire Line
-	11000 8000 11000 8200
-Connection ~ 11000 8200
-Wire Wire Line
-	11000 8200 11250 8200
-Wire Wire Line
-	10800 8200 11000 8200
 Wire Wire Line
 	10950 5700 10950 5800
 Wire Wire Line
@@ -889,7 +858,7 @@ AR Path="/5C8B4752" Ref="TP?"  Part="1"
 AR Path="/5C556852/5C8B4752" Ref="TP34"  Part="1" 
 F 0 "TP34" H 12658 8224 50  0000 L CNN
 F 1 "TestPoint" H 12658 8179 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 12800 8150 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 12800 8150 50  0001 C CNN
 F 3 "~" H 12800 8150 50  0001 C CNN
 	1    12600 8150
 	1    0    0    -1  
@@ -1018,7 +987,7 @@ AR Path="/5C67462C/5C8E4F64" Ref="TP?"  Part="1"
 AR Path="/5C556852/5C8E4F64" Ref="TP35"  Part="1" 
 F 0 "TP35" H 5758 5924 50  0000 L CNN
 F 1 "TestPoint" H 5758 5879 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 5900 5850 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 5900 5850 50  0001 C CNN
 F 3 "~" H 5900 5850 50  0001 C CNN
 	1    5700 5850
 	1    0    0    -1  
@@ -1151,7 +1120,7 @@ AR Path="/5C67462C/5C8EC94F" Ref="TP?"  Part="1"
 AR Path="/5C556852/5C8EC94F" Ref="TP36"  Part="1" 
 F 0 "TP36" H 5808 9174 50  0000 L CNN
 F 1 "TestPoint" H 5808 9129 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 5950 9100 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 5950 9100 50  0001 C CNN
 F 3 "~" H 5950 9100 50  0001 C CNN
 	1    5750 9100
 	1    0    0    -1  
@@ -1177,7 +1146,7 @@ AR Path="/5C946621" Ref="TP?"  Part="1"
 AR Path="/5C556852/5C946621" Ref="TP37"  Part="1" 
 F 0 "TP37" H 6708 6524 50  0000 L CNN
 F 1 "TestPoint" H 6708 6479 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 6850 6450 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 6850 6450 50  0001 C CNN
 F 3 "~" H 6850 6450 50  0001 C CNN
 	1    6650 6450
 	1    0    0    -1  
@@ -1185,4 +1154,6 @@ $EndComp
 Connection ~ 6650 6450
 Wire Wire Line
 	6650 6450 6950 6450
+Wire Wire Line
+	10800 8200 11250 8200
 $EndSCHEMATC

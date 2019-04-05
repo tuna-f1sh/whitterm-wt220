@@ -2,6 +2,7 @@ exports/
 ref/
 
 # Output folders
+prod/
 Gerber/
 Gerbers/
 exports/

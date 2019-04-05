@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:whitterm-hat-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -132,8 +132,6 @@ Wire Wire Line
 	3200 2700 3500 2700
 Text HLabel 1400 2700 0    50   Input ~ 0
 AIN_I1
-Wire Wire Line
-	1400 2700 1700 2700
 $Comp
 L Device:R R38
 U 1 1 5C6777DC
@@ -262,31 +260,8 @@ Wire Wire Line
 Connection ~ 5900 1850
 Wire Wire Line
 	5900 1850 5900 2000
-$Comp
-L Diode:BAV99 D17
-U 1 1 5C674D27
-P 3650 2150
-F 0 "D17" H 3650 1925 50  0000 C CNN
-F 1 "BAV99" H 3650 2016 50  0000 C CNN
-F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3650 2000 50  0001 C CNN
-F 3 "www.nxp.com/documents/data_sheet/BAV99_SER.pdf" H 3650 2250 50  0001 C CNN
-	1    3650 2150
-	-1   0    0    1   
-$EndComp
-$Comp
-L Diode:BAV99 D16
-U 1 1 5C674E30
-P 3350 2150
-F 0 "D16" H 3350 1925 50  0000 C CNN
-F 1 "BAV99" H 3350 2016 50  0000 C CNN
-F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3350 2000 50  0001 C CNN
-F 3 "www.nxp.com/documents/data_sheet/BAV99_SER.pdf" H 3350 2250 50  0001 C CNN
-	1    3350 2150
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	3500 2150 3500 2700
-Connection ~ 3500 2150
 Wire Wire Line
 	3850 4900 3750 4900
 Wire Wire Line
@@ -451,31 +426,8 @@ Wire Wire Line
 Connection ~ 3550 4700
 Wire Wire Line
 	3550 4700 3850 4700
-$Comp
-L Diode:BAV99 D17
-U 2 1 5C6794A5
-P 3700 4150
-F 0 "D17" H 3700 3925 50  0000 C CNN
-F 1 "BAV99" H 3700 4016 50  0000 C CNN
-F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3700 4000 50  0001 C CNN
-F 3 "www.nxp.com/documents/data_sheet/BAV99_SER.pdf" H 3700 4250 50  0001 C CNN
-	2    3700 4150
-	-1   0    0    1   
-$EndComp
-$Comp
-L Diode:BAV99 D16
-U 2 1 5C6794AC
-P 3400 4150
-F 0 "D16" H 3400 3925 50  0000 C CNN
-F 1 "BAV99" H 3400 4016 50  0000 C CNN
-F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3400 4000 50  0001 C CNN
-F 3 "www.nxp.com/documents/data_sheet/BAV99_SER.pdf" H 3400 4250 50  0001 C CNN
-	2    3400 4150
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	3550 4150 3550 4700
-Connection ~ 3550 4150
 Text Notes 2450 1500 0    50   ~ 0
 0-10 V input to 0-3 V for uC ADC. G = 3/10
 $Comp
@@ -1092,26 +1044,13 @@ Wire Wire Line
 	9150 5250 9150 5400
 $Comp
 L Connector:TestPoint TP?
-U 1 1 5D675C23
-P 1700 2700
-AR Path="/5D675C23" Ref="TP?"  Part="1" 
-AR Path="/5C67462C/5D675C23" Ref="TP28"  Part="1" 
-F 0 "TP28" H 1758 2774 50  0000 L CNN
-F 1 "TestPoint" H 1758 2729 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 1900 2700 50  0001 C CNN
-F 3 "~" H 1900 2700 50  0001 C CNN
-	1    1700 2700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:TestPoint TP?
 U 1 1 5D67A81A
 P 4950 2800
 AR Path="/5D67A81A" Ref="TP?"  Part="1" 
 AR Path="/5C67462C/5D67A81A" Ref="TP30"  Part="1" 
 F 0 "TP30" H 5008 2874 50  0000 L CNN
 F 1 "TestPoint" H 5008 2829 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 5150 2800 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 5150 2800 50  0001 C CNN
 F 3 "~" H 5150 2800 50  0001 C CNN
 	1    4950 2800
 	1    0    0    -1  
@@ -1124,7 +1063,7 @@ AR Path="/5D67FA60" Ref="TP?"  Part="1"
 AR Path="/5C67462C/5D67FA60" Ref="TP29"  Part="1" 
 F 0 "TP29" H 2758 8874 50  0000 L CNN
 F 1 "TestPoint" H 2758 8829 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 2900 8800 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 2900 8800 50  0001 C CNN
 F 3 "~" H 2900 8800 50  0001 C CNN
 	1    2700 8800
 	1    0    0    -1  
@@ -1137,7 +1076,7 @@ AR Path="/5D68450A" Ref="TP?"  Part="1"
 AR Path="/5C67462C/5D68450A" Ref="TP31"  Part="1" 
 F 0 "TP31" H 5408 8974 50  0000 L CNN
 F 1 "TestPoint" H 5408 8929 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 5550 8900 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 5550 8900 50  0001 C CNN
 F 3 "~" H 5550 8900 50  0001 C CNN
 	1    5350 8900
 	1    0    0    -1  
@@ -1150,7 +1089,7 @@ AR Path="/5D689B53" Ref="TP?"  Part="1"
 AR Path="/5C67462C/5D689B53" Ref="TP32"  Part="1" 
 F 0 "TP32" H 8608 2274 50  0000 L CNN
 F 1 "TestPoint" H 8608 2229 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 8750 2200 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 8750 2200 50  0001 C CNN
 F 3 "~" H 8750 2200 50  0001 C CNN
 	1    8550 2200
 	1    0    0    -1  
@@ -1163,7 +1102,7 @@ AR Path="/5D68FDF6" Ref="TP?"  Part="1"
 AR Path="/5C67462C/5D68FDF6" Ref="TP33"  Part="1" 
 F 0 "TP33" H 12808 1624 50  0000 L CNN
 F 1 "TestPoint" H 12808 1579 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 12950 1550 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 12950 1550 50  0001 C CNN
 F 3 "~" H 12950 1550 50  0001 C CNN
 	1    12750 1550
 	1    0    0    -1  
@@ -1177,9 +1116,6 @@ Wire Wire Line
 Connection ~ 4950 2800
 Wire Wire Line
 	4950 2800 5300 2800
-Connection ~ 1700 2700
-Wire Wire Line
-	1700 2700 2000 2700
 Wire Wire Line
 	2700 8800 2500 8800
 Connection ~ 5350 8900
@@ -1289,4 +1225,52 @@ Wire Wire Line
 	4450 9400 4300 9400
 Text Notes 3250 6750 0    50   ~ 0
 0-10 V output to 0-3.3 V for uC DAC. G = 3 ((100 / 50) + 1)
+$Comp
+L Diode:BAV99 D17
+U 1 1 5C914FDF
+P 3350 2150
+F 0 "D17" H 3350 1925 50  0000 C CNN
+F 1 "BAV99" H 3350 2016 50  0000 C CNN
+F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3350 2000 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 3350 2250 50  0001 C CNN
+	1    3350 2150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Diode:BAV99 D16
+U 1 1 5C8F8B33
+P 3400 4150
+F 0 "D16" H 3400 3925 50  0000 C CNN
+F 1 "BAV99" H 3400 4016 50  0000 C CNN
+F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3400 4000 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 3400 4250 50  0001 C CNN
+	1    3400 4150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Diode:BAV99 D17
+U 2 1 5C8F9AE0
+P 3650 2150
+F 0 "D17" H 3650 1925 50  0000 C CNN
+F 1 "BAV99" H 3650 2016 50  0000 C CNN
+F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3650 2000 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 3650 2250 50  0001 C CNN
+	2    3650 2150
+	-1   0    0    1   
+$EndComp
+Connection ~ 3500 2150
+$Comp
+L Diode:BAV99 D16
+U 2 1 5C93469F
+P 3700 4150
+F 0 "D16" H 3700 3925 50  0000 C CNN
+F 1 "BAV99" H 3700 4016 50  0000 C CNN
+F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3700 4000 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 3700 4250 50  0001 C CNN
+	2    3700 4150
+	-1   0    0    1   
+$EndComp
+Connection ~ 3550 4150
+Wire Wire Line
+	1400 2700 2000 2700
 $EndSCHEMATC

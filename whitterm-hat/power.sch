@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:whitterm-hat-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Regulator_Linear:MCP1703A-3302_SOT23 U9
+L Regulator_Linear:MCP1703A-3302_SOT23 U7
 U 1 1 5AB155FD
 P 7450 4050
-F 0 "U9" H 7300 4175 50  0000 C CNN
+F 0 "U7" H 7300 4175 50  0000 C CNN
 F 1 "MCP1703A-3302_SOT23" H 7450 4175 50  0000 L CNN
 F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 7450 4250 50  0001 C CNN
 F 3 "" H 7450 4000 50  0001 C CNN
@@ -114,10 +114,10 @@ F 3 "" H 9000 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED D13
+L Device:LED D22
 U 1 1 5AB185A2
 P 11950 3650
-F 0 "D13" H 11950 3750 50  0000 C CNN
+F 0 "D22" H 11950 3750 50  0000 C CNN
 F 1 "KP-2012MGC" H 11950 3550 50  0000 C CNN
 F 2 "KiCad/LED_SMD.pretty:LED_0603_1608Metric" H 11950 3650 50  0001 C CNN
 F 3 "" H 11950 3650 50  0001 C CNN
@@ -181,10 +181,10 @@ F 6 "Single P-Channel 20 V 1.3 W 8.0 nC Hexfet Power Mosfet Surface Mount - SOT-
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R_Small R30
+L Device:R_Small R20
 U 1 1 5AB24B72
 P 5600 4550
-F 0 "R30" H 5630 4570 50  0000 L CNN
+F 0 "R20" H 5630 4570 50  0000 L CNN
 F 1 "10k" H 5630 4510 50  0000 L CNN
 F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 5600 4550 50  0001 C CNN
 F 3 "" H 5600 4550 50  0001 C CNN
@@ -337,10 +337,10 @@ Wire Wire Line
 Wire Wire Line
 	7350 7250 7650 7250
 $Comp
-L Device:R_Small R31
+L Device:R_Small R30
 U 1 1 5C672C21
 P 6700 6950
-F 0 "R31" H 6730 6970 50  0000 L CNN
+F 0 "R30" H 6730 6970 50  0000 L CNN
 F 1 "10k" H 6730 6910 50  0000 L CNN
 F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 6700 6950 50  0001 C CNN
 F 3 "" H 6700 6950 50  0001 C CNN
@@ -356,10 +356,10 @@ Wire Wire Line
 	6700 7250 7350 7250
 Connection ~ 7350 7250
 $Comp
-L Device:R_Small R32
+L Device:R_Small R31
 U 1 1 5C674B9F
 P 7750 7250
-F 0 "R32" H 7780 7270 50  0000 L CNN
+F 0 "R31" H 7780 7270 50  0000 L CNN
 F 1 "150R" H 7780 7210 50  0000 L CNN
 F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 7750 7250 50  0001 C CNN
 F 3 "" H 7750 7250 50  0001 C CNN
@@ -466,10 +466,10 @@ F 6 "Single P-Channel 20 V 1.3 W 8.0 nC Hexfet Power Mosfet Surface Mount - SOT-
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R_Small R58
+L Device:R_Small R32
 U 1 1 5D3E3444
 P 10800 7100
-F 0 "R58" H 10830 7120 50  0000 L CNN
+F 0 "R32" H 10830 7120 50  0000 L CNN
 F 1 "10k" H 10830 7060 50  0000 L CNN
 F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 10800 7100 50  0001 C CNN
 F 3 "" H 10800 7100 50  0001 C CNN
@@ -490,10 +490,10 @@ $EndComp
 Wire Wire Line
 	10800 7200 10800 7300
 $Comp
-L Device:D_Zener_Small D23
+L Device:D_Zener_Small D13
 U 1 1 5D3E3455
 P 11250 6800
-F 0 "D23" H 11250 6890 50  0000 C CNN
+F 0 "D13" H 11250 6890 50  0000 C CNN
 F 1 "MMSZ16T1G" V 11500 6800 50  0000 C CNN
 F 2 "KiCad/Diode_SMD.pretty:D_SOD-123" V 11250 6800 50  0001 C CNN
 F 3 "" V 11250 6800 50  0001 C CNN
@@ -569,7 +569,7 @@ AR Path="/5D61C0D3" Ref="TP?"  Part="1"
 AR Path="/5C65C880/5D61C0D3" Ref="TP27"  Part="1" 
 F 0 "TP27" H 8608 4124 50  0000 L CNN
 F 1 "TestPoint" H 8608 4079 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 8750 4050 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 8750 4050 50  0001 C CNN
 F 3 "~" H 8750 4050 50  0001 C CNN
 	1    8550 4050
 	1    0    0    -1  
@@ -582,7 +582,7 @@ AR Path="/5D61DAC5" Ref="TP?"  Part="1"
 AR Path="/5C65C880/5D61DAC5" Ref="TP25"  Part="1" 
 F 0 "TP25" H 5258 4124 50  0000 L CNN
 F 1 "TestPoint" H 5258 4079 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 5400 4050 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 5400 4050 50  0001 C CNN
 F 3 "~" H 5400 4050 50  0001 C CNN
 	1    5200 4050
 	1    0    0    -1  
@@ -595,7 +595,7 @@ AR Path="/5D61EF1D" Ref="TP?"  Part="1"
 AR Path="/5C65C880/5D61EF1D" Ref="TP26"  Part="1" 
 F 0 "TP26" H 6658 4124 50  0000 L CNN
 F 1 "TestPoint" H 6658 4079 50  0001 L CNN
-F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D2.0mm" H 6800 4050 50  0001 C CNN
+F 2 "KiCad/TestPoint.pretty:TestPoint_Pad_D1.5mm" H 6800 4050 50  0001 C CNN
 F 3 "~" H 6800 4050 50  0001 C CNN
 	1    6600 4050
 	1    0    0    -1  
@@ -609,4 +609,48 @@ Wire Wire Line
 	8550 4050 8800 4050
 Wire Wire Line
 	6600 4050 7150 4050
+$Comp
+L Device:LED D23
+U 1 1 5CA2321A
+P 5600 6550
+F 0 "D23" H 5600 6650 50  0000 C CNN
+F 1 "KP-2012MGC" H 5600 6450 50  0000 C CNN
+F 2 "KiCad/LED_SMD.pretty:LED_0603_1608Metric" H 5600 6550 50  0001 C CNN
+F 3 "" H 5600 6550 50  0001 C CNN
+F 4 "Kingbright" H 5600 6550 60  0001 C CNN "MFN"
+F 5 "KP-2012MGC" H 5600 6550 60  0001 C CNN "MFP"
+F 6 "KP-2012MGC Green LED, 570 nm 2012 (0805), Rectangle Lens SMD package" H 5600 6550 60  0001 C CNN "Description"
+	1    5600 6550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R58
+U 1 1 5CA23226
+P 5600 6900
+F 0 "R58" H 5630 6920 50  0000 L CNN
+F 1 "220R" H 5630 6860 50  0000 L CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 5600 6900 50  0001 C CNN
+F 3 "" H 5600 6900 50  0001 C CNN
+	1    5600 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 6300 5600 6400
+Wire Wire Line
+	5600 6700 5600 6800
+$Comp
+L power:GND #PWR018
+U 1 1 5CA2322E
+P 5600 7100
+F 0 "#PWR018" H 5600 6850 50  0001 C CNN
+F 1 "GND" H 5600 6950 50  0000 C CNN
+F 2 "" H 5600 7100 50  0001 C CNN
+F 3 "" H 5600 7100 50  0001 C CNN
+	1    5600 7100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 7000 5600 7100
+Text HLabel 5600 6300 1    50   UnSpc ~ 0
+PI_5V
 $EndSCHEMATC
