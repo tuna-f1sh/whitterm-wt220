@@ -920,31 +920,6 @@ Wire Wire Line
 Wire Wire Line
 	2200 2000 2500 2000
 $Comp
-L Device:R_Small R3
-U 1 1 5C6DD68C
-P 4850 8300
-F 0 "R3" V 4850 8550 50  0000 C CNN
-F 1 "0R" V 4850 8300 50  0000 C CNN
-F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 4850 8300 50  0001 C CNN
-F 3 "~" H 4850 8300 50  0001 C CNN
-F 4 "Fitted to GND sets UFP mode" V 5600 8300 50  0001 C CNN "Notes"
-	1    4850 8300
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R4
-U 1 1 5C6D1E87
-P 4850 8400
-F 0 "R4" V 4850 8650 50  0000 C CNN
-F 1 "0R" V 4850 8400 50  0000 C CNN
-F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 4850 8400 50  0001 C CNN
-F 3 "~" H 4850 8400 50  0001 C CNN
-F 4 "DNF" V 5600 8400 50  0001 C CNN "Notes"
-F 5 "Place resistor to enable I2C mode 0x60, not fitted for GPIO mode" V 5500 8400 50  0000 C CNN "Description"
-	1    4850 8400
-	0    1    1    0   
-$EndComp
-$Comp
 L Power_Protection:PRTR5V0U2X D1
 U 1 1 5C6C1718
 P 3050 9950
@@ -1657,5 +1632,30 @@ F 6 "RC0402JR-0722RL" H -7250 -10000 50  0001 C CNN "MPN"
 F 7 "Digikey" H -7250 -10000 50  0001 C CNN "SPR"
 	1    8300 4350
 	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R4
+U 1 1 5C6D1E87
+P 4850 8400
+F 0 "R4" V 4850 8650 50  0000 C CNN
+F 1 "0R" V 4850 8400 50  0000 C CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 4850 8400 50  0001 C CNN
+F 3 "~" H 4850 8400 50  0001 C CNN
+F 4 "DNF" V 5600 8400 50  0001 C CNN "Notes"
+F 5 "Place resistor to enable I2C mode 0x60, not fitted for GPIO mode" V 5500 8400 50  0000 C CNN "Description"
+	1    4850 8400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R3
+U 1 1 5C6DD68C
+P 4850 8300
+F 0 "R3" V 4850 8550 50  0000 C CNN
+F 1 "0R" V 4850 8300 50  0000 C CNN
+F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 4850 8300 50  0001 C CNN
+F 3 "~" H 4850 8300 50  0001 C CNN
+F 4 "Fitted to GND sets UFP mode" V 5600 8300 50  0001 C CNN "Notes"
+	1    4850 8300
+	0    1    1    0   
 $EndComp
 $EndSCHEMATC
