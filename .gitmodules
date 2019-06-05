@@ -1,0 +1,6 @@
+[submodule "firmware/wt220-samd/lib/RBD_Button"]
+	path = firmware/wt220-samd/lib/RBD_Button
+	url = https://github.com/alextaujenis/RBD_Button
+[submodule "firmware/wt220-samd/lib/RBD_Timer"]
+	path = firmware/wt220-samd/lib/RBD_Timer
+	url = https://github.com/alextaujenis/RBD_Timer

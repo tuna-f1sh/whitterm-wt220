@@ -368,29 +368,7 @@ Wire Wire Line
 Wire Wire Line
 	2050 7800 2250 7800
 Wire Wire Line
-	2250 7800 2250 7750
-Wire Wire Line
-	2050 7500 2250 7500
-Connection ~ 2250 7500
-Wire Wire Line
-	2050 7600 2250 7600
-Connection ~ 2250 7600
-Wire Wire Line
-	2250 7600 2250 7500
-Wire Wire Line
-	2050 7700 2250 7700
-Connection ~ 2250 7700
-Wire Wire Line
-	2250 7700 2250 7600
-Wire Wire Line
 	3100 7700 2850 7700
-Wire Wire Line
-	2550 7700 2550 7750
-Wire Wire Line
-	2550 7750 2250 7750
-Connection ~ 2250 7750
-Wire Wire Line
-	2250 7750 2250 7700
 $Comp
 L power:VBUS #PWR0111
 U 1 1 5C6FE8BB
@@ -728,25 +706,10 @@ $EndComp
 Wire Wire Line
 	1150 10400 1150 10500
 Wire Wire Line
-	1150 10500 1250 10500
-Wire Wire Line
-	1250 10400 1250 10500
-Connection ~ 1250 10500
-Wire Wire Line
-	1250 10500 1350 10500
-Wire Wire Line
-	1350 10400 1350 10500
-Connection ~ 1350 10500
-Wire Wire Line
-	1350 10500 1450 10500
-Wire Wire Line
 	1450 10400 1450 10500
 Connection ~ 1450 10500
 Wire Wire Line
 	1450 10500 1550 10500
-Wire Wire Line
-	1550 10400 1550 10500
-Connection ~ 1550 10500
 $Comp
 L Device:Jumper_NO_Small JP5
 U 1 1 5C8B2F24
@@ -1139,8 +1102,6 @@ Wire Wire Line
 	9200 1700 9050 1700
 Text Label 9050 1700 2    50   ~ 0
 ~PI_EN
-Wire Wire Line
-	2250 7250 2250 7500
 Wire Wire Line
 	3400 7250 3400 8250
 Wire Wire Line
@@ -1658,4 +1619,13 @@ F 4 "Fitted to GND sets UFP mode" V 5600 8300 50  0001 C CNN "Notes"
 	1    4850 8300
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	2250 7250 2250 7800
+Wire Wire Line
+	2550 7800 2250 7800
+Wire Wire Line
+	2550 7700 2550 7800
+Connection ~ 2250 7800
+Wire Wire Line
+	1150 10500 1450 10500
 $EndSCHEMATC

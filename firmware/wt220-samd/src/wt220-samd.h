@@ -20,5 +20,9 @@
 #define DIN2_PIN              9
 #define AOUT1_PIN             A0
 
+#define BOOT_HOLD_DELAY       500
+#define SHUTDOWN_HOLD_DELAY   3000
+
+Uart *ExtSerial = &Serial1;
 
 #endif

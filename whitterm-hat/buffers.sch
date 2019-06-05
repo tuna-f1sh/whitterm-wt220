@@ -156,7 +156,7 @@ L Diode:BZX84Cxx D14
 U 1 1 5C678A55
 P 2000 3000
 F 0 "D14" V 1954 3079 50  0000 L CNN
-F 1 "BZX84Cxx" V 2045 3079 50  0000 L CNN
+F 1 "BZX84C10LT1G" V 2045 3079 50  0000 L CNN
 F 2 "KiCad/Diode_SMD.pretty:D_SOT-23_ANK" H 2000 2825 50  0001 C CNN
 F 3 "https://diotec.com/tl_files/diotec/files/pdf/datasheets/bzx84c2v4.pdf" H 2000 3000 50  0001 C CNN
 	1    2000 3000
@@ -373,7 +373,7 @@ L Diode:BZX84Cxx D15
 U 1 1 5C679484
 P 2050 5000
 F 0 "D15" V 2004 5079 50  0000 L CNN
-F 1 "BZX84Cxx" V 2095 5079 50  0000 L CNN
+F 1 "BZX84C10LT1G" V 2095 5079 50  0000 L CNN
 F 2 "KiCad/Diode_SMD.pretty:D_SOT-23_ANK" H 2050 4825 50  0001 C CNN
 F 3 "https://diotec.com/tl_files/diotec/files/pdf/datasheets/bzx84c2v4.pdf" H 2050 5000 50  0001 C CNN
 	1    2050 5000
@@ -1256,7 +1256,7 @@ F 1 "BAV99" H 3650 2016 50  0000 C CNN
 F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3650 2000 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 3650 2250 50  0001 C CNN
 	2    3650 2150
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 Connection ~ 3500 2150
 $Comp
@@ -1268,7 +1268,7 @@ F 1 "BAV99" H 3700 4016 50  0000 C CNN
 F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 3700 4000 50  0001 C CNN
 F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 3700 4250 50  0001 C CNN
 	2    3700 4150
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 Connection ~ 3550 4150
 Wire Wire Line

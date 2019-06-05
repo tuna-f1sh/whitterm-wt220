@@ -5,10 +5,10 @@ USER_LIB_PATH = ../lib
 OBJDIR = ../bin
 TARGET = wt220-samd
 
-UPLOAD_TOOL = openocd
+# UPLOAD_TOOL = openocd
 # ARDUINO_LIBS = 
 
 AVRDUDE_OPTS = -V -v
-MONITOR_CMD = ../miniterm.py --echo --tx-buffer
+MONITOR_CMD = miniterm.py --echo --tx-buffer
 
 include $(ARDMK_DIR)/Sam.mk
