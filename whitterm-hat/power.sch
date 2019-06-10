@@ -326,16 +326,12 @@ F 3 "" H 6700 6300 50  0001 C CNN
 $EndComp
 Text HLabel 8100 6650 2    50   UnSpc ~ 0
 PI_5V
-Text HLabel 8100 7250 2    50   Input ~ 0
-~PI_EN
+Text HLabel 8450 7550 2    50   Input ~ 0
+PI_EN
 Wire Wire Line
 	6700 6650 7150 6650
 Wire Wire Line
 	7550 6650 7900 6650
-Wire Wire Line
-	7350 6950 7350 7250
-Wire Wire Line
-	7350 7250 7650 7250
 $Comp
 L Device:R_Small R30
 U 1 1 5C672C21
@@ -353,21 +349,7 @@ Connection ~ 6700 6650
 Wire Wire Line
 	6700 7050 6700 7250
 Wire Wire Line
-	6700 7250 7350 7250
-Connection ~ 7350 7250
-$Comp
-L Device:R_Small R31
-U 1 1 5C674B9F
-P 7750 7250
-F 0 "R31" H 7780 7270 50  0000 L CNN
-F 1 "150R" H 7780 7210 50  0000 L CNN
-F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" H 7750 7250 50  0001 C CNN
-F 3 "" H 7750 7250 50  0001 C CNN
-	1    7750 7250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7850 7250 8100 7250
+	8200 7550 8450 7550
 $Comp
 L Device:Jumper_NO_Small JP?
 U 1 1 5C67EBAB
@@ -653,4 +635,39 @@ Wire Wire Line
 	5600 7000 5600 7100
 Text HLabel 5600 6300 1    50   UnSpc ~ 0
 PI_5V
+$Comp
+L power:GND #PWR?
+U 1 1 5D00BC51
+P 7900 7850
+F 0 "#PWR?" H 7900 7600 50  0001 C CNN
+F 1 "GND" H 7900 7700 50  0000 C CNN
+F 2 "" H 7900 7850 50  0001 C CNN
+F 3 "" H 7900 7850 50  0001 C CNN
+	1    7900 7850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7900 7750 7900 7850
+$Comp
+L Transistor_BJT:BC850 Q?
+U 1 1 5CFFBA8C
+P 8000 7550
+AR Path="/5C67462C/5CFFBA8C" Ref="Q?"  Part="1" 
+AR Path="/5C65C880/5CFFBA8C" Ref="Q?"  Part="1" 
+F 0 "Q?" H 8191 7596 50  0000 L CNN
+F 1 "BC850" H 8191 7505 50  0000 L CNN
+F 2 "KiCad/Package_TO_SOT_SMD.pretty:SOT-23" H 8200 7475 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/Infineon-BC847SERIES_BC848SERIES_BC849SERIES_BC850SERIES-DS-v01_01-en.pdf?fileId=db3a304314dca389011541d4630a1657" H 8000 7550 50  0001 L CNN
+	1    8000 7550
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 7250 7350 7250
+Wire Wire Line
+	7900 7250 7900 7350
+Wire Wire Line
+	7350 6950 7350 7250
+Connection ~ 7350 7250
+Wire Wire Line
+	7350 7250 7900 7250
 $EndSCHEMATC
