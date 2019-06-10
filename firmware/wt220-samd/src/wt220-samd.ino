@@ -8,30 +8,84 @@
 
 RBD::Button boot(BOOT_BTN_PIN); // input_pullup by default
 RBD::Timer pressTimer(BOOT_HOLD_DELAY);
+bool piEnabled = false;
 
-void setup() {
-  pinMode(BLINK_LED_PIN, OUTPUT);
+RBD::Timer blinkTask(500);
+RBD::Timer outTestTask(5);
+
+bool echoExtSerial = true;
+
+const char* serialStart = "\
+-------------- WT 220 SAMD --------------\n\
+------- IO Panel Microcontroller --------\n\
+--- JBR Engineering Research Ltd 2019 ---\n";
+
+static inline void setup_rs232() {
+  pinMode(RS232_RTS_PIN, OUTPUT); digitalWrite(RS232_RTS_PIN, LOW);
+  pinMode(RS232_CTS_PIN, INPUT);
+  ExtSerial->begin(9600); // ttl to rs232
+}
+
+static inline void setup_gpio() {
+  pinMode(LED_PIN, OUTPUT);
 
   pinMode(NOT_PI_EN_PIN, OUTPUT); digitalWrite(NOT_PI_EN_PIN, HIGH);
 
   pinMode(USBC_INT_PIN, INPUT); pinMode(USBC_ID_PIN, INPUT);
 
-  pinMode(RS232_RTS_PIN, OUTPUT); digitalWrite(NOT_PI_EN_PIN, LOW);
-  pinMode(RS232_CTS_PIN, INPUT);
+  // buffered inputs/outputs
+  analogWriteResolution(ALOG_RESOLUTION_BITS);
+  analogReadResolution(ALOG_RESOLUTION_BITS);
+  /* analogReference(AR_EXTERNAL); */
 
-  ExtSerial->begin(9600); // ttl to rs232
+  pinMode(AIN1_PIN, INPUT); pinMode(AIN2_PIN, INPUT);
+  pinMode(DIN1_PIN, INPUT_PULLUP); pinMode(DIN2_PIN, INPUT_PULLUP);
+
+  pinMode(DOUT1_PIN, OUTPUT); pinMode(DOUT2_PIN, OUTPUT);
+  digitalWrite(DOUT1_PIN, HIGH); digitalWrite(DOUT2_PIN, HIGH);
+}
+
+void setup() {
+  setup_gpio();
+  setup_rs232();
+
+  while(boot.isPressed()) {
+    for (int i = MAX_ALOG_VALUE; i > 0; i--) {
+      analogWrite(LED_PIN, i);
+      delayMicroseconds(100);
+    }
+  }
+
+  SerialUSB.print(serialStart);
+  SerialUSB.print("SYS V: "); SerialUSB.print(VERSION_MAJOR); SerialUSB.print("."); SerialUSB.print(VERSION_MINOR);
 }
 
 void loop() {
-  analogWrite(13, 240);   // set the LED on
-  delay(BOOT_HOLD_DELAY);              // wait for a second
-  ExtSerial->println("hello world");
-  analogWrite(13, 255);    // set the LED off
-  delay(BOOT_HOLD_DELAY);              // wait for a second
+  static uint16_t aout = 0;
+
+  if (blinkTask.onRestart()) {
+    analogWrite(LED_PIN, (MAX_ALOG_VALUE >> 1));    // set the LED on
+    if (!echoExtSerial) ExtSerial->println("SYS: hello world"); // blink rs232 leds too
+  } else if (blinkTask.getValue() > 100) {
+    analogWrite(LED_PIN, MAX_ALOG_VALUE);   // set the LED off
+  }
+
+  if (outTestTask.onRestart()) {
+    analogWrite(AOUT1_PIN, ++aout);
+    if (aout > MAX_DAC_VALUE) aout = 0;
+
+    /* float voltage = 0.0; */
+    /* voltage = (float) analogRead(AIN1_PIN) / MAX_ALOG_VALUE; */
+    /* voltage *= EXT_ALOG_REF; */
+    /* voltage *= 3.33; */
+    /* SerialUSB.print(analogRead(AIN1_PIN)); */
+    /* SerialUSB.print(" "); */
+    /* SerialUSB.println(voltage); */
+  }
 
   if (boot.onPressed()) {
     // if 5 V RPI supply is not enabled, set enable hold delay
-    if (digitalRead(NOT_PI_EN_PIN)) {
+    if (!piEnabled) {
       pressTimer.setTimeout(BOOT_HOLD_DELAY);
     // otherwise, set shutdown delay
     } else {
@@ -43,13 +97,25 @@ void loop() {
     if (pressTimer.onExpired()) {
       if (pressTimer.getTimeout() == BOOT_HOLD_DELAY) {
         digitalWrite(NOT_PI_EN_PIN, LOW);
-        SerialUSB.println("Enabling 5 V RPi line");
+        piEnabled = true;
+        SerialUSB.println("SYS: Enabling 5 V RPi line");
       } else {
         digitalWrite(NOT_PI_EN_PIN, HIGH);
-        SerialUSB.println("Disabling 5 V RPi line");
+        piEnabled = false;
+        SerialUSB.println("SYS: Disabling 5 V RPi line");
       }
     }
   } else if (boot.onReleased()) {
     pressTimer.stop();
+  }
+
+  if (echoExtSerial) {
+    if (SerialUSB.available()) {      // If anything comes in Serial (USB),
+      ExtSerial->write(SerialUSB.read());   // read it and send it out Serial1 (pins 0 & 1)
+    }
+
+    if (ExtSerial->available()) {     // If anything comes in Serial1 (pins 0 & 1)
+      SerialUSB.write(ExtSerial->read());   // read it and send it out Serial (USB)
+    }
   }
 }

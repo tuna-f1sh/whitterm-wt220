@@ -1,7 +1,10 @@
 #ifndef WT220_SAMD_H
 #define WT220_SAMD_H
 
-#define BLINK_LED_PIN         13
+#define VERSION_MAJOR         0
+#define VERSION_MINOR         1
+
+#define LED_PIN               13
 
 #define BOOT_BTN_PIN          11
 #define NOT_PI_EN_PIN         3
@@ -18,7 +21,18 @@
 #define DOUT2_PIN             7
 #define DIN1_PIN              8
 #define DIN2_PIN              9
-#define AOUT1_PIN             A0
+#define AOUT1_PIN             DAC0
+
+#define USE_EXT_REF           false
+#if USE_EXT_REF
+#define EXT_ALOG_REF          2.501
+#else
+#define EXT_ALOG_REF          3.300
+#endif
+#define ALOG_RESOLUTION_BITS  12
+#define DAC_RESOLUTION_BITS   12 // is it actually 10 bits but Arduino function maps value passed to alog resolution bits :o
+#define MAX_ALOG_VALUE        ((1 << ALOG_RESOLUTION_BITS) - 1)
+#define MAX_DAC_VALUE         ((1 << DAC_RESOLUTION_BITS) - 1)
 
 #define BOOT_HOLD_DELAY       500
 #define SHUTDOWN_HOLD_DELAY   3000

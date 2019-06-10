@@ -689,17 +689,6 @@ F 3 "~" H 5000 7450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:VCC #PWR06
-U 1 1 5D0A0214
-P 4600 7350
-F 0 "#PWR06" H 4600 7200 50  0001 C CNN
-F 1 "VCC" H 4617 7523 50  0000 C CNN
-F 2 "" H 4600 7350 50  0001 C CNN
-F 3 "" H 4600 7350 50  0001 C CNN
-	1    4600 7350
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR07
 U 1 1 5D0A021A
 P 5500 8000
@@ -744,7 +733,7 @@ L Device:R R13
 U 1 1 5D0BC7FF
 P 3650 9650
 F 0 "R13" H 3580 9604 50  0000 R CNN
-F 1 "50k" H 3580 9695 50  0000 R CNN
+F 1 "100k" H 3580 9695 50  0000 R CNN
 F 2 "KiCad/Resistor_SMD.pretty:R_0603_1608Metric" V 3580 9650 50  0001 C CNN
 F 3 "" H 3650 9650 50  0001 C CNN
 F 4 "0.1%" H 3650 9650 50  0001 C CNN "Characteristics"
@@ -1224,7 +1213,7 @@ Connection ~ 4450 9400
 Wire Wire Line
 	4450 9400 4300 9400
 Text Notes 3250 6750 0    50   ~ 0
-0-10 V output to 0-3.3 V for uC DAC. G = 3 ((100 / 50) + 1)
+0-5 V target output: 0-2.5 V output from DAC; G = 2 ((100 / 100) + 1)
 $Comp
 L Diode:BAV99 D17
 U 1 1 5C914FDF
@@ -1273,4 +1262,19 @@ $EndComp
 Connection ~ 3550 4150
 Wire Wire Line
 	1400 2700 2000 2700
+$Comp
+L power:+5V #PWR?
+U 1 1 5D0C1E91
+P 4600 7350
+F 0 "#PWR?" H 4600 7200 50  0001 C CNN
+F 1 "+5V" H 4615 7523 50  0000 C CNN
+F 2 "" H 4600 7350 50  0001 C CNN
+F 3 "" H 4600 7350 50  0001 C CNN
+	1    4600 7350
+	1    0    0    -1  
+$EndComp
+Text Notes 2000 1650 0    50   Italic 0
+These values will only work using default 3.3 V internal reference for ADC
+Text Notes 3350 6900 0    50   Italic 0
+These values will only work using default 3.3 V internal reference
 $EndSCHEMATC
