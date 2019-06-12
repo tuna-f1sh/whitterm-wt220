@@ -45,6 +45,32 @@ static inline void setup_gpio() {
   digitalWrite(DOUT1_PIN, HIGH); digitalWrite(DOUT2_PIN, HIGH);
 }
 
+static void set_aout_voltage(float voltage) {
+  uint16_t data = 0;
+
+  if (voltage > AOUT_MAX_VOLTAGE) {
+    voltage = AOUT_MAX_VOLTAGE;
+  }
+
+  voltage /= AOUT_GAIN;
+  voltage /= EXT_ALOG_REF;
+  voltage *= MAX_DAC_VALUE;
+
+  data = (uint16_t) voltage;
+
+  analogWrite(AOUT1_PIN, data);
+}
+
+static float read_ain_voltage(uint16_t pin) {
+  float voltage = 0.0;
+
+  voltage = (float) analogRead(pin) / MAX_ALOG_VALUE;
+  voltage *= EXT_ALOG_REF;
+  voltage *= AIN_GAIN;
+
+  return voltage;
+}
+
 void setup() {
   setup_gpio();
   setup_rs232();
@@ -61,7 +87,7 @@ void setup() {
 }
 
 void loop() {
-  static uint16_t aout = 0;
+  static float aout = 0.0;
 
   if (blinkTask.onRestart()) {
     analogWrite(LED_PIN, (MAX_ALOG_VALUE >> 1));    // set the LED on
@@ -71,16 +97,15 @@ void loop() {
   }
 
   if (outTestTask.onRestart()) {
-    analogWrite(AOUT1_PIN, ++aout);
-    if (aout > MAX_DAC_VALUE) aout = 0;
+    set_aout_voltage(aout);
+    if (aout < 3.3) {
+      aout += 0.1;
+    } else {
+      aout = 0.0;
+    }
 
-    /* float voltage = 0.0; */
-    /* voltage = (float) analogRead(AIN1_PIN) / MAX_ALOG_VALUE; */
-    /* voltage *= EXT_ALOG_REF; */
-    /* voltage *= 3.33; */
-    /* SerialUSB.print(analogRead(AIN1_PIN)); */
-    /* SerialUSB.print(" "); */
-    /* SerialUSB.println(voltage); */
+    SerialUSB.print("AIN Count: "); SerialUSB.print(analogRead(AIN1_PIN));
+    SerialUSB.print(" Voltage / V: "); SerialUSB.println(read_ain_voltage(AIN1_PIN));
   }
 
   if (boot.onPressed()) {
