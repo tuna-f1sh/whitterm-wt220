@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 from smbus import SMBus
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.OUT)
+GPIO.setup(27, GPIO.OUT)
 
 ADDR = 0x12 # bus address
 BUS = SMBus(1) # indicates /dev/ic2-1
@@ -12,7 +12,7 @@ BUS = SMBus(1) # indicates /dev/ic2-1
 BUS.write_byte(ADDR, 0x03) # tell samd we're booted
 
 def set_case_led_serial_activity(set):
-    GPIO.output(17, set)
+    GPIO.output(27, not set)
 
 set_case_led_serial_activity(True)
 
