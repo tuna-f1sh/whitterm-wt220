@@ -44,7 +44,7 @@ lcd_rotate=2
 #arm_freq=800
 
 # Uncomment some or all of these to enable the optional hardware interfaces
-#dtparam=i2c_arm=on
+dtparam=i2c_arm=on
 #dtparam=i2s=on
 #dtparam=spi=on
 
@@ -57,4 +57,5 @@ disable_splash=1
 
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
-dtoverlay=pi3-miniuart-bt
+dtoverlay=pi3-miniUart-bt
+core_freq=250
