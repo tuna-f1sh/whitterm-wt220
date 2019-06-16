@@ -5,6 +5,10 @@
 #define VERSION_MAJOR         0
 #define VERSION_MINOR         1
 
+#define DEBUG                 false
+#define DEBUG_DEVICE          1 // 0 USB, 1 Uart (ExtSerial)
+#define ECHO_EXTSERIAL        true
+
 // hardware pins
 #define LED_PIN               13
 
@@ -45,6 +49,18 @@
 #define BOOT_HOLD_DELAY       500
 #define SHUTDOWN_HOLD_DELAY   3000
 
-Uart *ExtSerial = &Serial1;
+// led states
+enum class state_t {
+  PI_OFF,
+  PI_ON,
+  PI_BOOTED,
+  SHUTDOWN_REQUEST,
+  SHUTTING_DOWN,
+  I2C_TIMEOUT
+};
+
+void startShutdown(void);
+state_t getState(void);
+void setState(state_t state);
 
 #endif

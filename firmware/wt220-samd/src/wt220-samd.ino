@@ -1,19 +1,31 @@
 #include "wt220-samd.h"
+#include "i2c.h"
 
 #include <RBD_Timer.h>
 #include <RBD_Button.h>
 
-// TODO - boot logic - press quick when off to turn on, hold 3s to turn off
-// TODO - echo SerialUSB to ExtSerial
+// TODO - add serial or I2C read-back of external I/O
+// TODO - I2C timeout after 10s of no booted status update from Pi
 
 RBD::Button boot(BOOT_BTN_PIN); // input_pullup by default
 RBD::Timer pressTimer(BOOT_HOLD_DELAY);
-bool piEnabled = false;
+state_t state = state_t::PI_OFF;
 
-RBD::Timer blinkTask(500);
-RBD::Timer outTestTask(5);
+RBD::Timer ledTask(10);
+struct led_t {
+  uint16_t counter = 0;
+  uint16_t current_count = 0;
+} main_led;
 
-bool echoExtSerial = true;
+RBD::Timer outTestTask(50);
+RBD::Timer shutdownTimer(3000);
+
+Uart *ExtSerial = &Serial1;
+#if DEBUG_DEVICE == 0
+  Uart *DbgSerial = SerialUSB;
+#elif DEBUG_DEVICE == 1
+  Uart *DbgSerial = ExtSerial;
+#endif
 
 const char* serialStart = "\
 -------------- WT 220 SAMD --------------\n\
@@ -71,16 +83,35 @@ static float read_ain_voltage(uint16_t pin) {
   return voltage;
 }
 
+void startShutdown() {
+  state = state_t::SHUTTING_DOWN;
+  shutdownTimer.restart();
+}
+
+state_t getState(void) {
+  return state;
+}
+
+void setState(state_t new_state) {
+  state = new_state;
+}
+
 void setup() {
   setup_gpio();
   setup_rs232();
+  setup_i2c_slave();
 
+  // hold in setup while boot pressed at boot
   while(boot.isPressed()) {
     for (int i = MAX_ALOG_VALUE; i > 0; i--) {
       analogWrite(LED_PIN, i);
       delayMicroseconds(100);
     }
   }
+
+  pressTimer.stop();
+  shutdownTimer.stop();
+  outTestTask.stop();
 
   SerialUSB.print(serialStart);
   SerialUSB.print("SYS V: "); SerialUSB.print(VERSION_MAJOR); SerialUSB.print("."); SerialUSB.print(VERSION_MINOR);
@@ -89,11 +120,46 @@ void setup() {
 void loop() {
   static float aout = 0.0;
 
-  if (blinkTask.onRestart()) {
-    analogWrite(LED_PIN, (MAX_ALOG_VALUE >> 1));    // set the LED on
-    if (!echoExtSerial) ExtSerial->println("SYS: hello world"); // blink rs232 leds too
-  } else if (blinkTask.getValue() > 100) {
-    analogWrite(LED_PIN, MAX_ALOG_VALUE);   // set the LED off
+  if (ledTask.onRestart()) {
+    ++main_led.counter;
+    switch (state) {
+      case state_t::PI_OFF:
+        if (!(main_led.counter % 100))
+          // on
+          main_led.current_count = MAX_ALOG_VALUE >> 1;
+        else if (!(main_led.counter % 10))
+          // off
+          main_led.current_count = MAX_ALOG_VALUE;
+        break;
+      case state_t::PI_ON:
+        // fade up quickly
+        if (main_led.current_count - 20 > 0) 
+          main_led.current_count -= 20;
+        else
+          main_led.current_count = MAX_DAC_VALUE;
+        break;
+      default:
+      case state_t::PI_BOOTED:
+        // steady on
+        main_led.current_count = MAX_ALOG_VALUE >> 1;
+        break;
+      case state_t::SHUTTING_DOWN:
+        // fade down quickly
+        if (main_led.current_count < MAX_ALOG_VALUE) 
+          main_led.current_count += 20;
+        else
+          main_led.current_count = (MAX_DAC_VALUE >> 1);
+        break;
+      case state_t::SHUTDOWN_REQUEST:
+        if (!(main_led.counter % 20))
+          // on
+          main_led.current_count = MAX_ALOG_VALUE >> 1;
+        else if (!(main_led.counter % 10))
+          // off
+          main_led.current_count = MAX_ALOG_VALUE;
+        break;
+    }
+    analogWrite(LED_PIN, main_led.current_count);
   }
 
   if (outTestTask.onRestart()) {
@@ -110,31 +176,47 @@ void loop() {
 
   if (boot.onPressed()) {
     // if 5 V RPI supply is not enabled, set enable hold delay
-    if (!piEnabled) {
+    if (state == state_t::PI_OFF) {
       pressTimer.setTimeout(BOOT_HOLD_DELAY);
+    // allow cancel request if not acted on
+    } else if (state == state_t::SHUTDOWN_REQUEST) {
+      SerialUSB.println("SYS: Abort shutdown");
+      setState(state_t::PI_ON);
     // otherwise, set shutdown delay
-    } else {
+    } else if (state != state_t::SHUTTING_DOWN) {
       pressTimer.setTimeout(SHUTDOWN_HOLD_DELAY);
     }
 
     pressTimer.restart();
   } else if (boot.isPressed()) {
     if (pressTimer.onExpired()) {
-      if (pressTimer.getTimeout() == BOOT_HOLD_DELAY) {
-        digitalWrite(NOT_PI_EN_PIN, LOW);
-        piEnabled = true;
+      if (state == state_t::PI_OFF) {
         SerialUSB.println("SYS: Enabling 5 V RPi line");
+        digitalWrite(NOT_PI_EN_PIN, LOW);
+        state = state_t::PI_ON;
       } else {
-        digitalWrite(NOT_PI_EN_PIN, HIGH);
-        piEnabled = false;
-        SerialUSB.println("SYS: Disabling 5 V RPi line");
+        // first issue shutdown request
+        if (state == state_t::PI_ON || state == state_t::PI_BOOTED) {
+          SerialUSB.println("SYS: Request shutdown");
+          state = state_t::SHUTDOWN_REQUEST;
+        // but if held again, force shutdown
+        } else {
+          startShutdown();
+        }
       }
     }
   } else if (boot.onReleased()) {
     pressTimer.stop();
   }
 
-  if (echoExtSerial) {
+  if (shutdownTimer.onRestart()) {
+    SerialUSB.println("SYS: Disabling 5 V RPi line");
+    digitalWrite(NOT_PI_EN_PIN, HIGH);
+    state = state_t::PI_OFF;
+    shutdownTimer.stop();
+  }
+
+  if (ECHO_EXTSERIAL) {
     if (SerialUSB.available()) {      // If anything comes in Serial (USB),
       ExtSerial->write(SerialUSB.read());   // read it and send it out Serial1 (pins 0 & 1)
     }

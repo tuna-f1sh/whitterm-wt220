@@ -5,7 +5,7 @@ USER_LIB_PATH = ../lib
 OBJDIR = ../bin
 TARGET = wt220-samd
 
-# UPLOAD_TOOL = openocd
+UPLOAD_TOOL = openocd
 # ARDUINO_LIBS = 
 
 AVRDUDE_OPTS = -V -v
