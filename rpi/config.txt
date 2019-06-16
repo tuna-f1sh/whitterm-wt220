@@ -57,5 +57,12 @@ disable_splash=1
 
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
+
+# Still allow BLE on miniuart
 dtoverlay=pi3-miniUart-bt
 core_freq=250
+
+# GPU settings
+gpu_mem=256
+
+dtoverlay=vc4-fkms-v3d

@@ -1,0 +1,15 @@
+[Unit]
+Description=WT-220 I2C interface with rear panel service
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/python3 /opt/wt220/wt220-i2c.py
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=wt-220-i2c
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=rig-app.service
