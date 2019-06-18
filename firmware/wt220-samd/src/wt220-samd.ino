@@ -83,8 +83,9 @@ static float read_ain_voltage(uint16_t pin) {
   return voltage;
 }
 
-void startShutdown() {
-  state = state_t::SHUTTING_DOWN;
+void startShutdown(uint16_t timeout = 3000) {
+  setState(state_t::SHUTTING_DOWN);
+  shutdownTimer.setTimeout(timeout);
   shutdownTimer.restart();
 }
 
@@ -93,7 +94,23 @@ state_t getState(void) {
 }
 
 void setState(state_t new_state) {
+  SerialUSB.print("SYS: "); SerialUSB.print((int) state); SerialUSB.print(" to "); SerialUSB.println((int) new_state);
   state = new_state;
+
+  switch (state) {
+    case state_t::PI_ON:
+      SerialUSB.println("SYS: Enabling 5 V RPi line");
+      digitalWrite(NOT_PI_EN_PIN, LOW);
+      break;
+    case state_t::PI_OFF:
+      SerialUSB.println("SYS: Disabling 5 V RPi line");
+      digitalWrite(NOT_PI_EN_PIN, HIGH);
+      break;
+    case state_t::SHUTDOWN_REQUEST:
+      SerialUSB.println("SYS: Request shutdown");
+    default:
+      break;
+  }
 }
 
 void setup() {
@@ -179,9 +196,9 @@ void loop() {
     if (state == state_t::PI_OFF) {
       pressTimer.setTimeout(BOOT_HOLD_DELAY);
     // allow cancel request if not acted on
-    } else if (state == state_t::SHUTDOWN_REQUEST) {
-      SerialUSB.println("SYS: Abort shutdown");
-      setState(state_t::PI_ON);
+    /* } else if (state == state_t::SHUTDOWN_REQUEST) { */
+    /*   SerialUSB.println("SYS: Abort shutdown"); */
+    /*   setState(state_t::PI_ON); */
     // otherwise, set shutdown delay
     } else if (state != state_t::SHUTTING_DOWN) {
       pressTimer.setTimeout(SHUTDOWN_HOLD_DELAY);
@@ -191,14 +208,11 @@ void loop() {
   } else if (boot.isPressed()) {
     if (pressTimer.onExpired()) {
       if (state == state_t::PI_OFF) {
-        SerialUSB.println("SYS: Enabling 5 V RPi line");
-        digitalWrite(NOT_PI_EN_PIN, LOW);
-        state = state_t::PI_ON;
+        setState(state_t::PI_ON);
       } else {
         // first issue shutdown request
         if (state == state_t::PI_ON || state == state_t::PI_BOOTED) {
-          SerialUSB.println("SYS: Request shutdown");
-          state = state_t::SHUTDOWN_REQUEST;
+          setState(state_t::SHUTDOWN_REQUEST);
         // but if held again, force shutdown
         } else {
           startShutdown();
@@ -210,9 +224,7 @@ void loop() {
   }
 
   if (shutdownTimer.onRestart()) {
-    SerialUSB.println("SYS: Disabling 5 V RPi line");
-    digitalWrite(NOT_PI_EN_PIN, HIGH);
-    state = state_t::PI_OFF;
+    setState(state_t::PI_OFF);
     shutdownTimer.stop();
   }
 

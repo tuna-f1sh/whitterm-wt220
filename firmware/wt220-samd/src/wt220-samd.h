@@ -59,7 +59,7 @@ enum class state_t {
   I2C_TIMEOUT
 };
 
-void startShutdown(void);
+void startShutdown(uint16_t timeout);
 state_t getState(void);
 void setState(state_t state);
 

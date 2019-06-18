@@ -7,6 +7,7 @@
 #define I2C_CMD_SHUTDOWN          0x01
 #define I2C_CMD_BUTTON_REQUEST    0x02
 #define I2C_CMD_PI_BOOTED         0x03
+#define I2C_CMD_POWER_OFF         0x04
 
 void setup_i2c_slave();
 

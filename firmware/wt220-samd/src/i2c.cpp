@@ -16,7 +16,10 @@ static void receiveEvent(int numBytes) {
 
   switch (cmd) {
     case I2C_CMD_SHUTDOWN:
-      startShutdown();
+      startShutdown(3000);
+      break;
+    case I2C_CMD_POWER_OFF:
+      startShutdown(1000);
       break;
     default:
       if (DEBUG) {DbgSerial->println("I2C: Unknown or no action for cmd!");}
