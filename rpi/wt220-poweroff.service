@@ -1,0 +1,12 @@
+[Unit]
+Description=Send I2C shutdown command at system shutdown
+DefaultDependencies=no
+After=final.target
+
+[Service]
+Type=oneshot
+User=pi
+ExecStart=/usr/bin/python3 /opt/wt220/wt220-poweroff.py
+
+[Install]
+WantedBy=final.target

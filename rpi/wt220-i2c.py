@@ -28,7 +28,7 @@ while (1):
         if (shutdown_requested is 0x01):
             print("Shutdown request recieved, shutting down")
             BUS.write_byte(ADDR, 0x01)
-            # os.system("sudo shutdown -h now") 
+            os.system("sudo shutdown -h now") 
         time.sleep(5)
     except IOError:
         print("I2C Fail!")
