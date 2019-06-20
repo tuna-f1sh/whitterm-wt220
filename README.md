@@ -1,4 +1,4 @@
-```
+```bash
         __        _______    ____  ____   ___
         \ \      / /_   _|  |___ \|___ \ / _ \
          \ \ /\ / /  | |_____ __) | __) | | | |
@@ -39,16 +39,21 @@ controls supply to RPi via 'Boot' button:
 
 ### Simplified State Diagram
 
-graph TB
-    OFF-->|boot pressed (500 ms)|ON
-    ON-->|I2C booted cmd recieved|BOOTED
-    ON-->|I2C recieve booted timeout (20000 ms)|I2C_TIMEOUT
-    BOOTED-->|I2C recieve booted timeout (20000 ms)|I2C_TIMEOUT
-    BOOTED-->|boot pressed (3000 ms)|SHUTDOWN_REQUESTED
-    I2C_TIMEOUT-->|boot pressed (3000 ms)|SHUTDOWN
-    SHUTDOWN_REQUESTED-->|I2C shutdown cmd|SHUTDOWN
-    SHUTDOWN_REQUESTED-->|boot pressed|ON
-    SHUTDOWN-->OFF
+```mermaid
+graph TB;
+    OFF-->|boot pressed 500 ms|ON;
+    ON-->|I2C booted cmd recieved|BOOTED;
+    ON-->|I2C recieve booted timeout 20000 ms|I2C_TIMEOUT;
+    BOOTED-->|I2C recieve booted timeout 20000 ms|I2C_TIMEOUT;
+    BOOTED-->|boot pressed 3000 ms|SHUTDOWN_REQUESTED;
+    I2C_TIMEOUT-->|boot pressed 3000 ms|SHUTDOWN;
+    I2C_TIMEOUT-->|I2C booted cmd recieved|BOOTED;
+    SHUTDOWN_REQUESTED-->|I2C shutdown cmd|SHUTDOWN;
+    SHUTDOWN_REQUESTED-->|boot pressed|ON;
+    SHUTDOWN-->OFF;
+```
+
+![mermaid state](./firmware/state-mermaid.png)
 
 ## RPi Files (./rpi)
 

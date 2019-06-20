@@ -43,7 +43,7 @@ static void requestEvent() {
       Wire.write((getState() == state_t::SHUTDOWN_REQUEST));
       break;
     case I2C_CMD_PI_BOOTED:
-      if (getState() == state_t::PI_ON || getState() == state_t::PI_OFF) {
+      if (getState() == state_t::PI_ON || getState() == state_t::PI_OFF || getState() == state_t::I2C_TIMEOUT) {
         setState(state_t::PI_BOOTED);
       }
       i2cTimeoutTimer.restart();
