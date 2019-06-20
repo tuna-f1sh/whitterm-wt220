@@ -1,10 +1,13 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+#include <RBD_Timer.h>
+
 #include "wt220-samd.h"
 #include "i2c.h"
 
 extern Uart *DbgSerial;
+extern RBD::Timer i2cTimeoutTimer;
 
 static void receiveEvent(int numBytes) {
   uint8_t cmd = 0x00;
@@ -16,7 +19,7 @@ static void receiveEvent(int numBytes) {
 
   switch (cmd) {
     case I2C_CMD_SHUTDOWN:
-      startShutdown(3000);
+      startShutdown(10000);
       break;
     case I2C_CMD_POWER_OFF:
       startShutdown(1000);
@@ -43,6 +46,7 @@ static void requestEvent() {
       if (getState() == state_t::PI_ON || getState() == state_t::PI_OFF) {
         setState(state_t::PI_BOOTED);
       }
+      i2cTimeoutTimer.restart();
       Wire.write(0x2A);
       break;
     default:

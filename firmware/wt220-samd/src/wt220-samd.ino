@@ -5,7 +5,6 @@
 #include <RBD_Button.h>
 
 // TODO - add serial or I2C read-back of external I/O
-// TODO - I2C timeout after 10s of no booted status update from Pi
 
 RBD::Button boot(BOOT_BTN_PIN); // input_pullup by default
 RBD::Timer pressTimer(BOOT_HOLD_DELAY);
@@ -19,6 +18,7 @@ struct led_t {
 
 RBD::Timer outTestTask(50);
 RBD::Timer shutdownTimer(3000);
+RBD::Timer i2cTimeoutTimer(20000);
 
 Uart *ExtSerial = &Serial1;
 #if DEBUG_DEVICE == 0
@@ -101,10 +101,13 @@ void setState(state_t new_state) {
     case state_t::PI_ON:
       SerialUSB.println("SYS: Enabling 5 V RPi line");
       digitalWrite(NOT_PI_EN_PIN, LOW);
+      // start the i2c timer timeout
+      i2cTimeoutTimer.restart();
       break;
     case state_t::PI_OFF:
       SerialUSB.println("SYS: Disabling 5 V RPi line");
       digitalWrite(NOT_PI_EN_PIN, HIGH);
+      i2cTimeoutTimer.stop();
       break;
     case state_t::SHUTDOWN_REQUEST:
       SerialUSB.println("SYS: Request shutdown");
@@ -129,6 +132,7 @@ void setup() {
   pressTimer.stop();
   shutdownTimer.stop();
   outTestTask.stop();
+  i2cTimeoutTimer.stop();
 
   SerialUSB.print(serialStart);
   SerialUSB.print("SYS V: "); SerialUSB.print(VERSION_MAJOR); SerialUSB.print("."); SerialUSB.print(VERSION_MINOR);
@@ -159,6 +163,10 @@ void loop() {
       case state_t::PI_BOOTED:
         // steady on
         main_led.current_count = MAX_ALOG_VALUE >> 1;
+        break;
+      case state_t::I2C_TIMEOUT:
+        // steady dimmer
+        main_led.current_count = (MAX_ALOG_VALUE >> 1) + 1024;
         break;
       case state_t::SHUTTING_DOWN:
         // fade down quickly
@@ -191,14 +199,18 @@ void loop() {
     SerialUSB.print(" Voltage / V: "); SerialUSB.println(read_ain_voltage(AIN1_PIN));
   }
 
+  if (i2cTimeoutTimer.onRestart()) {
+    setState(state_t::I2C_TIMEOUT);
+  }
+
   if (boot.onPressed()) {
     // if 5 V RPI supply is not enabled, set enable hold delay
     if (state == state_t::PI_OFF) {
       pressTimer.setTimeout(BOOT_HOLD_DELAY);
     // allow cancel request if not acted on
-    /* } else if (state == state_t::SHUTDOWN_REQUEST) { */
-    /*   SerialUSB.println("SYS: Abort shutdown"); */
-    /*   setState(state_t::PI_ON); */
+    } else if (state == state_t::SHUTDOWN_REQUEST) {
+      SerialUSB.println("SYS: Abort shutdown");
+      setState(state_t::PI_ON);
     // otherwise, set shutdown delay
     } else if (state != state_t::SHUTTING_DOWN) {
       pressTimer.setTimeout(SHUTDOWN_HOLD_DELAY);
@@ -213,7 +225,7 @@ void loop() {
         // first issue shutdown request
         if (state == state_t::PI_ON || state == state_t::PI_BOOTED) {
           setState(state_t::SHUTDOWN_REQUEST);
-        // but if held again, force shutdown
+        // but if held again or in timeout, force shutdown
         } else {
           startShutdown();
         }
