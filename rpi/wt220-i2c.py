@@ -27,8 +27,8 @@ while (1):
         time.sleep(0.1)
         if (shutdown_requested is 0x01):
             print("Shutdown request recieved, shutting down")
-            BUS.write_byte(ADDR, 0x01)
             os.system("sudo shutdown -h now") 
+            subprocess.call(['./wt220-shutdown-banner.sh'])
         time.sleep(5)
     except IOError:
-        print("I2C Fail!")
+        # print("I2C Fail!")

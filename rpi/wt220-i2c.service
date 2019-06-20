@@ -5,8 +5,8 @@ Description=WT-220 I2C interface with rear panel service
 Type=simple
 User=pi
 ExecStart=/usr/bin/python3 /opt/wt220/wt220-i2c.py
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=syslog,tty
+StandardError=syslog,tty
 SyslogIdentifier=wt-220-i2c
 Restart=always
 

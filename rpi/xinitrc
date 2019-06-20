@@ -7,4 +7,3 @@
 # invoke global X session script
 . /etc/X11/Xsession
 unclutter &
-cool-retro-term --fullscreen --profile "Futuristic"

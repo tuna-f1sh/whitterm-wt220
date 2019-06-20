@@ -1,7 +1,7 @@
 [Unit]
 Description=Send I2C shutdown command at system shutdown
 DefaultDependencies=no
-After=final.target
+After=shutdown.target
 
 [Service]
 Type=oneshot
