@@ -19,12 +19,13 @@ KiCad design files for the rear io-panel:
 
 * USB-C input for USB-PD high current (3 A) supply to RPi. LEDs indicate
   detected current profile from UFP. I2C lines made available to SAMD for
-  trailing USB-C device modes.
+  playing with USB-C device modes.
 * MAX3232 RS232 transceiver provides RS232 level interface to RPi UART and SAMD
   UART.
 * SAMD21 microcontroller provides boot button control of RPi over I2C and
   buffered IO. Can be programmed over USB-C CDC-serial device or ISP.
-* DIP switch control of DB9 serial connection.
+* Control of RPi power supply from SAMD. Off by default allows safe start up, only when power input suitable/ready.
+* DIP switch control of device UART connections (SAMD, RPi, RS232).
 * Board replaces laser cut acrylic back piece from original design - it is
   both electronically and mechanically integrated.
 * Lots of status LEDs 😃.
@@ -63,7 +64,7 @@ opted for I3WM since it's a keyboard terminal.
 
 ### Services
 
-* boot: Runs shell script that displays boot logo ascii.
+* boot: Runs shell script that displays boot ascii logo.
 * i2c: Runs python I2C script (wt220-i2c.py) that configures case LEDs to act
   on RX/TX and then maintains link with I2C link with SAMD. Polls shutdown
   request state and acts on request by issuing system shutdown.
@@ -89,3 +90,7 @@ Need to manually install
 [`cool-retro-term`](https://github.com/Swordfish90/cool-retro-term)
 
 Other packages in 'rpi/dpkg-selections.txt'
+
+## Breakout (./whitterm-breakout)
+
+DB9 GPIO breakout from V 1.0 rear panel

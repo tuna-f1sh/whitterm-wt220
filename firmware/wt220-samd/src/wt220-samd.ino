@@ -131,8 +131,11 @@ void setup() {
 
   pressTimer.stop();
   shutdownTimer.stop();
-  outTestTask.stop();
   i2cTimeoutTimer.stop();
+
+  if (!PRINT_AIN) {
+    outTestTask.stop();
+  }
 
   SerialUSB.print(serialStart);
   SerialUSB.print("SYS V: "); SerialUSB.print(VERSION_MAJOR); SerialUSB.print("."); SerialUSB.print(VERSION_MINOR);
@@ -195,8 +198,12 @@ void loop() {
       aout = 0.0;
     }
 
-    SerialUSB.print("AIN Count: "); SerialUSB.print(analogRead(AIN1_PIN));
-    SerialUSB.print(" Voltage / V: "); SerialUSB.println(read_ain_voltage(AIN1_PIN));
+    if (PRINT_GRAPH) {
+      DbgSerial->println(read_ain_voltage(AIN1_PIN));
+    } else {
+      SerialUSB.print("AIN Count: "); SerialUSB.print(analogRead(AIN1_PIN));
+      SerialUSB.print(" Voltage / V: "); SerialUSB.println(read_ain_voltage(AIN1_PIN));
+    }
   }
 
   if (i2cTimeoutTimer.onRestart()) {

@@ -9,6 +9,9 @@
 #define DEBUG_DEVICE          1 // 0 USB, 1 Uart (ExtSerial)
 #define ECHO_EXTSERIAL        true
 
+#define PRINT_AIN             false
+#define PRINT_GRAPH           false
+
 // hardware pins
 #define LED_PIN               13
 
